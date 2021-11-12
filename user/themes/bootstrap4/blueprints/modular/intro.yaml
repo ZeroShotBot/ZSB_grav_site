@@ -1,0 +1,44 @@
+title: Intro
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            header.smallTitle:
+              type: text
+              autofocus: true
+              style: vertical
+              label: Small Upper Title
+            header.firstIntroImage:
+              type: filepicker
+              folder: '@self'
+              description: Best Experience With Dimensions - 1128x2010px.
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: First Intro Image
+              help: upload the first intro image
+            header.secondIntroImage:
+              type: filepicker
+              folder: '@self'
+              description: Best Experience With Dimensions - 1128x1500px.
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Second Intro Image
+              help: upload the second intro image
+            header.introButtonLabel:
+              type: text
+              label: Intro Button Label
+            header.introButtonUrl:
+              type: text
+              label: First Button Url

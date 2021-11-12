@@ -1,0 +1,53 @@
+<section class="vlt-custom--5156">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1"><span class="vlt-section-title__subtitle">{{ page.header.smallTitle }}</span>
+                        <h2 class="vlt-section-title__title">{{ page.title }}</h2>
+                        <div class="vlt-gap-20"></div>
+                        <p class="vlt-section-title__text">{{ page.content }}</p>
+                    </div>
+                </div>
+                <div class="vlt-gap-90"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for category in header.category %}
+            <div class="col-md-6 {% if loop.last %}position-relative{% endif %} ">
+                {% if loop.last %}<!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern-long.png') }}" data-animation-name="fadeInRight" alt="" style="position: absolute; bottom: -240px; right: -130px; max-width: 210px; --animate-delay: .5s;z-index:-1" loading="lazy">{% endif %}
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="{{ loop.index }}00">
+                    <!--Pricing table-->
+                    <div class="vlt-pricing-table  {% if category.style == 'dark' %}vlt-pricing-table--featured{% else %}has-extra-light-gray-background-color{% endif %}" {% if category.style == 'dark' %}style="background-image: url({{ url('theme://images/root/pricing-table.png') }});"{% endif %}>
+                        <div class="vlt-pricing-table__header">
+                            <h4 class="vlt-pricing-table__title">{{ category.title }}
+                            </h4>
+                        </div>
+                        {#<div class="vlt-pricing-table__price"><span class="currency">$</span><span class="price">49</span><span class="period">/mo</span></div>#}
+                        <div class="vlt-gap-50"></div>
+                        <div class="vlt-pricing-table__content">
+                            <ul>
+                                {% for item in category.features %}
+                                <li{% if item.advantage == 'yes' %} class="active"{% endif %}>
+                                    <i class="{% if item.advantage == 'yes' %}icon-check{% else %}icon-cross{% endif %}"></i>
+                                    {{ item.name }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {#<div class="vlt-pricing-table__action">#}
+                            {#<!--Button--><a class="vlt-btn vlt-btn--tertiary vlt-btn--lg" href="#" target="_self">Join now</a>#}
+                        {#</div>#}
+                    </div>
+                </div>
+                <div class="vlt-gap-60--sm"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="vlt-gap-80"></div>
+</section>

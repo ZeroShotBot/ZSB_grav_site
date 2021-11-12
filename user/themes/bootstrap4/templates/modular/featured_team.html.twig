@@ -1,0 +1,97 @@
+{% set team_page = page.find( page.header.content.source ) %}
+{% set team_profiles = page.collection() %}
+
+<!--Section-->
+<section class="has-extra-light-gray-background-color">
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1">
+                        <span class="vlt-section-title__subtitle">{{ page.header.smallTitle }}</span>
+                        <h2 class="vlt-section-title__title">{{ page.title }}</h2>
+
+                        {% if page.content %}
+                            <div class="vlt-gap-40"></div>
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="20">
+                                <p class="fz-3">{{ page.content|markdown }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="vlt-gap-40"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ team_page.url }}" target="_self">Meet the team</a>
+                </div>
+                <div class="vlt-gap-60--sm"></div>
+            </div>
+            <div class="col-md-7 offset-md-1">
+                <div class="vlt-stretch-block to-right reset-mobile">
+                    <!--Animated block-->
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                        <!--Content slider-->
+                        <div class="vlt-content-slider" data-navigation-anchor="" data-gap="30" data-loop="enable" data-speed="" data-autoplay="1" data-autoplay-speed="1000" data-slides-centered="" data-slide-settings="{&quot;slides_to_show&quot;:3,&quot;slides_to_show_mobile&quot;:1}" data-free-mode="" data-slider-offset="" data-mousewheel="">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+
+                                    {% for profile in team_profiles %}
+                                    {% if profile.header.unfeatured != 'unfeatured' %}
+                                    <div class="swiper-slide">
+                                        <!--Team member-->
+                                        <div class="vlt-team-member vlt-team-member--style-1">
+                                            <div class="vlt-team-member__avatar">
+
+                                                {% if profile.header.photo %}
+                                                    {{ (profile.media.images[profile.header.photo]).cropZoom(500, 500).html|raw  }}
+                                                {% else %}
+                                                    <img src="{{ url('theme://images/placeholders/profile_placeholder.jpg?cropZoom=500,500') }}" alt="" loading="lazy">
+                                                {% endif %}
+
+
+                                                {% if profile.header.social %}
+                                                <div class="vlt-team-member__socials">
+                                                    {% for socialLink in profile.header.social %}
+                                                    <a class="vlt-social-icon vlt-social-icon--style-4" href="{{ socialLink.socialIconLink }}" target="_blank"><i class="{{ socialLink.socialIconClass }}"></i></a>
+                                                    {% endfor %}
+                                                </div>
+                                                {% endif %}
+
+                                            </div>
+                                            <div class="vlt-team-member__content">
+                                                <h5 class="vlt-team-member__name">
+                                                    {%  if profile.visible  %}
+                                                        <a href="{{ profile.url }}">{{ profile.title }}</a>
+                                                    {%  else  %}
+                                                        {{ profile.title }}
+                                                    {% endif %}
+                                                </h5>
+                                                <p class="vlt-team-member__function">{{ profile.header.role }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <div class="swiper-slide">
+                                        <div class="vlt-team-member vlt-team-member--style-1 text-center">
+                                            <div class="vlt-gap-40"></div>
+                                            <h1 class="text-muted vlt-stroke-text">
+                                                <a href="{{ team_page.url }}">view <br>more</a>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>
+<!--Section-->

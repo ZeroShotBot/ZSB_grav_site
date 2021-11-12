@@ -1,0 +1,23 @@
+title: Title Text
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.smallTitle:
+              type: text
+              label: Small Upper Title
+
+
+
+

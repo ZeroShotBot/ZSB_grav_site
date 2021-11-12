@@ -1,0 +1,4 @@
+{% set crumbs = parent.breadcrumbs.get() %}
+<div class="container">
+    {% include 'partials/breadcrumbs.html.twig' with {'crumbs': crumbs} %}
+</div>

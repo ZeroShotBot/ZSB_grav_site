@@ -1,0 +1,95 @@
+{% set portfolio = page.find( page.header.content.source ) %}
+{% set portfolio_items = page.collection() %}
+<!--Section-->
+<section>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+
+            <div class="col-lg-5 vlt-column-space-to-container to-left has-white-background-color">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1"><span
+                                class="vlt-section-title__subtitle">{{ page.header.smallTitle }}</span>
+                        <h2 class="vlt-section-title__title">{{ page.title }}</h2>
+                    </div>
+
+                    {% if page.content %}
+                        <div class="vlt-gap-40"></div>
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="20">
+                            <p class="fz-3">{{ page.content|markdown }}</p>
+                        </div>
+                    {% endif %}
+
+                </div>
+                <div class="vlt-gap-20"></div>
+                <div class="row">
+
+                    {% if portfolio.header.featuredClients %}
+                    {% for client in portfolio.header.featuredClients %}
+                        <div class="col-6 col-md-4">
+                            <div class="vlt-gap-30"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                                <!--Partner-->
+                                <div class="vlt-partner vlt-partner--left">
+                                    {#<a href="#">{#}
+                                        <img src="{{ portfolio.media.images[client.logo].url }}" alt="{{ client.title }}"
+                                             loading="lazy">
+                                    {#</a>#}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="vlt-gap-50"></div>
+                <div class="text-md-center has-black-color">
+                    <!--Animated block-->
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                        <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md"
+                                             href="{{ portfolio.url }}"
+                                             target="_self">See our Portfolio<i
+                                    class="icon-arrow-top-right"></i></a>
+                    </div>
+                </div>
+                <div class="vlt-gap-120"></div>
+            </div>
+            <!-- Portfolio Items -->
+            <div class="col-lg-6 offset-lg-1 p-0">
+                <div class="row no-gutters">
+                    {% for work in portfolio_items %}
+                        <div class="col-md-6">
+                        <!--Portfolio item-->
+                        <article class="vlt-work vlt-work--style-4">
+                            <div class="vlt-work__media">
+                                {#{%  if work.content is not null %}#}
+                                {#<a class="vlt-work__link has-cursor" href="{{ work.link }}"></a>#}
+                                {#{% endif %}#}
+                                {{ (work.media.images[work.header.portfolioImage]).cropZoom(800, 800).html|raw  }}
+                            </div>
+                            <div class="vlt-work__meta">
+                                <h5 class="vlt-work__title">{{ work.title }}
+                                </h5>
+                                {% if work.taxonomy.tag %}
+                                    <span class="vlt-work__category">
+                                {% for tag in work.taxonomy.tag %}
+                                    <a class="badge badge-primary"
+                                       href="{{ work.parent.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                                {% endfor %}
+                                </span>
+                                {% endif %}
+                            </div>
+                        </article>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+<!-- Section -->
+<div class="vlt-gap-130  vlt-gap-0--sm"></div>

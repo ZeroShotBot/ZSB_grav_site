@@ -1,0 +1,51 @@
+title: Gallery Text Block
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        gallery_text:
+          type: tab
+          title: Gallery TextBlock
+          fields:
+            gallery_images:
+              type: section
+              title:  Gallery Images
+              underline: true
+            header.images:
+              name: images
+              type: list
+              style: vertical
+              label: Images
+              fields:
+                .gallery_image:
+                  type: filepicker
+                  folder: '@self'
+                  description: Best Experience With Dimensions - 3000x2000px.
+                  preview_images: true
+                  acccept:
+                      - .png
+                      - .jpg
+                  label: Select Image
+                  help: upload the gallery images
+            contentblocks:
+              type: section
+              title:  Gallery Text Block
+              underline: true
+            header.left_textblock_title:
+              type: text
+              label: Left Title
+            header.left_textblock_content:
+              type: textarea
+              label: Left Content
+              description: enter text for left content block.
+            header.right_textblock_title:
+              type: text
+              label: Right Title
+            header.right_textblock_content:
+              type: textarea
+              label: Right Content
+              description: enter text for right content block.

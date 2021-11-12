@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set header_style = 'dark' %}
+
+{% block content %}
+    {% if config.plugins.breadcrumbs.enabled %}
+        <div class="vlt-gap-90"></div>
+        <div class="container">{% include 'partials/breadcrumbs.html.twig' %}</div>
+    {% endif %}
+
+    {% include 'partials/page_title.html.twig' %}
+
+    {% block page %}{% endblock %}
+    <div class="vlt-gap-100"></div>
+{% endblock %}

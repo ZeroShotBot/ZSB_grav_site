@@ -1,0 +1,57 @@
+{% set logo = theme_var('custom_logo_white') %}
+{% set logo_file = (logo|first).name %}
+{% if isFooterVisible %}
+<footer class="vlt-footer vlt-footer--style-2 vlt-footer--fixed text-lg-left text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <!--Widget-->
+                <div class="vlt-widget vlt-widget--html vlt-widget--white"><a href="{{ base_url == '' ? '/' : base_url }}"><img src="{{ url('theme://images/logo/' ~ logo_file) }}" alt="{{ logo_file }}"  alt="" style="height: 30px;" loading="lazy"></a></div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <!--Widget-->
+                <div class="vlt-widget vlt-widget--text vlt-widget--white">
+                    <ul>
+                        {% for page in pages.children.visible %}
+                        {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                        <li><a class="{{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <!--Widget-->
+                <div class="vlt-widget vlt-widget--text vlt-widget--white">
+                    <ul>
+                    {% for item in theme_var('footer-social') %}
+                        <li>
+                            <a href="{{ item.socialIconLink }}">
+                                <i class="{{ item.socialIconClass }}" aria-hidden="true"></i> |
+                                <span>{{ item.socialIconText }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <!--Widget-->
+                <div class="vlt-widget vlt-widget--text vlt-widget--white">
+                    <p>{{ theme_var('footer-address') }}</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <!--Widget-->
+                <div class="vlt-widget vlt-widget--text vlt-widget--white">{{ theme_var('footer-contact') }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-lg-right text-center">
+                <div class="vlt-gap-20"></div>
+                <small><a href="sitemap" target="_blank">sitemap</a> | {{ theme_var('footer-copyright') }}</small>
+                <div class="vlt-gap-20"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endif %}

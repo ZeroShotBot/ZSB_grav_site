@@ -1,0 +1,61 @@
+title: Feature Block
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            features:
+              type: section
+              title: Feature Sections
+              underline: true
+              fields:
+                header.featureSections:
+                  type: list
+                  label: Feature Section
+                  fields:
+                    .alignment:
+                      type: toggle
+                      label: Text Align
+                      default: left
+                      options:
+                        left: Left
+                        right: Right
+                    .image:
+                      type: filepicker
+                      folder: '@self'
+                      description: add feature section image
+                      preview_images: true
+                      acccept:
+                          - .png
+                          - .jpg
+                      label: First Intro Image
+                      help: upload the first intro image
+                    .smallTitle:
+                      type: text
+                      label: Small Upper Title
+                    .title:
+                      type: text
+                      label: Feature Title
+                    .content:
+                      type: textarea
+                      label: Content
+                      description: enter text for feature section.
+                    .buttonLabel:
+                      type: text
+                      label: Button Label
+                    .buttonUrl:
+                      type: text
+                      label: Button Url
+
+
+

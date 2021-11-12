@@ -1,0 +1,10 @@
+{% set logo = theme_var('custom_logo') %}
+{% set logo_white = theme_var('custom_logo_white') %}
+{% if logo and logo_white %}
+    {% set logo_file = (logo|first).name %}
+    {% set logo_white_file = (logo_white|first).name %}
+    <img class="black" src="{{ url('theme://images/logo/' ~ logo_file) }}" alt="{{ logo_file }}" style="height: 45px;" loading="lazy"/>
+    <img class="white" src="{{ url('theme://images/logo/' ~ logo_white_file) }}" alt="{{ logo_white_file }}" style="height: 45px;" loading="lazy"></a>
+{% else %}
+    {% include('@images/logo/logo.png') %}
+{% endif %}

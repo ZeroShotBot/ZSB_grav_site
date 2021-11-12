@@ -1,0 +1,64 @@
+title: Featured Work
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.smallTitle:
+              type: text
+              autofocus: true
+              style: vertical
+              label: Small Upper Title
+
+        featured_work:
+          type: tab
+          title: Featured Listing
+
+          fields:
+            header.content.source:
+              type: text
+              label: Source Content Path
+              default: "/our-work"
+
+            header.content.items:
+              type: text
+              yaml: true
+              label: Items
+              default: "'@page.descendants' : /our-work"
+
+            header.content.limit:
+              type: text
+              label: Max Item Count
+              default: 4
+              validate:
+                required: true
+                type: int
+                min: 4
+
+            header.content.order.by:
+              type: select
+              label: Order By
+              default: date
+              options:
+                folder: Folder
+                title: Title
+                date: Date
+                default: Default
+
+            header.content.order.dir:
+              type: select
+              label: Order
+              default: desc
+              options:
+                asc: Ascending
+                desc: Descending

@@ -1,0 +1,15 @@
+email: eldon.marks@gmail.com
+fullname: 'Eldon Marks'
+state: enabled
+hashed_password: $2y$10$A9tdeLZJRB18XjKrv8YSNuOMDqVLq4J357RZU0ibo3jd6elpUaCb2
+language: en
+content_editor: default
+twofa_enabled: false
+twofa_secret: C7ZX45SI3HKQVR2JEHXBVP3EGNCPGXAB
+avatar: {  }
+access:
+  site:
+    login: true
+  admin:
+    login: true
+    super: true

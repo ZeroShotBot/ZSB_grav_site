@@ -1,0 +1,90 @@
+title: Service Item
+@extends:
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+
+      fields:
+        services:
+          type: tab
+          title: Service Item
+
+          fields:
+
+            header.leadImage:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Lead Image
+              description: choose the first image which shows in the foreground and in the header
+
+            header.secondaryImage:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Secondary Image
+              description: choose the second image which shows in the background
+
+            header.smallTitle:
+              type: text
+              label: Small Title
+
+            header.leadTitle:
+              type: text
+              label: Lead Title
+
+            header.leadContent:
+              type: textarea
+              label: Lead Content
+              description: enter text for summary section.
+
+            header.specializations:
+              type: list
+              label: Bulleted Specializations
+              fields:
+                .name:
+                  type: text
+                  label: Name of specialization
+
+            header.buttonLabel:
+              type: text
+              label: Button Label
+              default: 'Learn More'
+
+        modular_settings:
+          type: tab
+          title: Modular Content
+
+          fields:
+            header.content.items:
+              type: select
+              label: Children
+              default: '@self.modular'
+              options:
+                '@self.modular': Children
+
+            header.content.order.by:
+              type: select
+              label: Order By
+              default: default
+              options:
+                folder: Folder
+                title: Title
+                default: Default
+
+            header.content.order.dir:
+              type: select
+              label: Order
+              default: desc
+              options:
+                asc: Ascending
+                desc: Descending

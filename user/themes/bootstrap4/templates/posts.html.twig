@@ -1,0 +1,59 @@
+{% embed 'partials/page.html.twig' %}
+
+    {% set collection = page.collection() %}
+
+    {% block page %}
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8">
+
+                    {% if uri.param('tag') is not empty %}
+                        <em>Showing posts related to:</em>
+                        <div class="vlt-gap-15"></div>
+                        <div class="alert alert-primary fade show" role="alert">
+                            <em><strong>{{ uri.param('tag')|humanize }}</strong></em>
+                            <a class="close" href="{{ page.url }}" aria-label="Remove tag">
+                                <span aria-hidden="true">&times;</span>
+                            </a>
+                        </div>
+                        <div class="vlt-gap-60"></div>
+                    {% endif %}
+
+                    <div class="vlt-isotope-grid" data-columns="1" data-layout="masonry" data-x-gap="0|0"
+                         data-y-gap="80|80" data-load-more-selector="#vlt-load-more-blog-01">
+                        <div class="grid-sizer"></div>
+
+                        {% for child in collection %}
+                            <div class="grid-item">
+                                {% include 'partials/post_item.html.twig' with {'posts': page, 'page': child} %}
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="vlt-sidebar vlt-sidebar--right">
+                        {% include 'partials/post_sidebar.html.twig' with {'posts': page} %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block pagination %}
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+            <div class="container pagination-container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        {% include 'partials/pagination.html.twig' with {'base_url': page.url, 'pagination': collection.params.pagination} %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="vlt-gap-120"></div>
+    {% endblock %}
+
+{% endembed %}
+

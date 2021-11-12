@@ -1,0 +1,36 @@
+navbar_style: navbar-light
+navbar_bgcolor: '#ffffff'
+
+dropdown:
+  enabled: false
+
+custom_logo:
+  user/themes/bootstrap4/images/logo/logo.png:
+    name: logo.png
+    type: image/png
+    size: 5725
+    path: user/themes/bootstrap4/images/logo/logo.png
+
+custom_logo_white:
+  user/themes/bootstrap4/images/logo/logo-white.png:
+    name: logo-white.png
+    type: image/png
+    size: 6260
+    path: user/themes/bootstrap4/images/logo/logo-white.png
+
+default_header_image:
+  user/themes/bootstrap4/images/placeholders/default_header_image.jpg:
+    name: default_header_image.jpg
+    type: image/png
+    size: 69318
+    path: user/themes/bootstrap4/images/placeholders/default_header_image.jpg
+
+footer-social:
+  -
+    socialIconClass: 'fa fa-linkedin'
+    socialIconText: Linked In
+    socialIconLink: 'https://www.linkedin.com/company/zeroshotbot-inc'
+  -
+    socialIconClass: 'fa fa-facebook-square'
+    socialIconText: Facebook
+    socialIconLink: 'https://www.facebook.com/ZeroShotBot'

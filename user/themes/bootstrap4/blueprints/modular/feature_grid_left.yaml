@@ -1,0 +1,39 @@
+title: Feature Grid Left
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.heading:
+              type: text
+              label: Heading for section
+            header.subtext:
+              type: text
+              label: Subtext or description to accompany heading.
+            header.features:
+              type: list
+              label: Features
+              help: Features of the product or service.
+              fields:
+                .icon:
+                  type: text
+                  label: Icon
+                  help: Icon's CSS class. Example.. icon-globe.
+                  placeholder: Example.. icon-globe
+                .text:
+                  type: text
+                  label: Title
+                  help: The title of the feature.
+                .url:
+                  type: text
+                  label: Description
+                  help: A brief description of the feature.

@@ -1,0 +1,104 @@
+{% embed 'partials/base.html.twig' %}
+
+    {% set header_style = 'dark' %}
+
+    {% block content %}
+        {% if config.plugins.breadcrumbs.enabled %}
+            <div class="vlt-gap-90"></div>
+            <div class="container">
+                {% include 'partials/breadcrumbs.html.twig' %}
+            </div>
+        {% endif %}
+
+        <div class="vlt-gap-60"></div>
+        <!--Section-->
+        <section class="has-white-color has-black-background-color jarallax vlt-custom--1681">
+            <div class="vlt-gap-120"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="vlt-stretch-block to-left">
+                            <ul class="vlt-tabs-image">
+                                <li class="is-active">
+                                    {% if page.header.photo %}
+                                        {{ (page.media.images[page.header.photo]).cropZoom(500, 500).html|raw  }}
+                                    {% else %}
+                                        <img src="{{ url('theme://images/placeholders/profile_placeholder.jpg?cropZoom=500,500') }}" alt="" loading="lazy">
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="vlt-gap-60--md"></div>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <h2 class="vlt-section-title__title" style=" color:#fff;">{{ page.title }}</h2>
+                            </div>
+                        </div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <h4 class="vlt-section-title__title has-gray-color">{{ page.header.role }}</h4>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-70"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
+                            <p class="fz-3">{{ page.content }}</p>
+                            <div class="vlt-gap-50"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if page.header.social %}
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="350">
+                <div class="pull-right d-inline-flex has-white-background-color has-black-color ml-auto" style="padding: 28px 65px;">
+                    <div class="vlt-team-member__socials">
+                        {% for socialLink in page.header.social %}
+                            <a class="vlt-social-icon vlt-social-icon--style-4" href="{{ socialLink.socialIconLink }}" target="_blank"><i class="{{ socialLink.socialIconClass }}"></i></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="vlt-gap-120"></div>
+        </section>
+        <div class="vlt-gap-120"></div>
+    {% endblock %}
+
+    {% block pagination %}
+        <!--Page navigation-->
+        <section class="vlt-page-navigation vlt-page-navigation--style-2">
+            <div class="container">
+                <div class="row no-gutters align-items-stretch">
+                    <div class="col-5">
+
+                        {% if page.prevSibling.url %}
+                            <div class="prev"><span class="label">Previous</span>
+                                <h5><a href="{{ page.prevSibling.url }}">{{ page.prevSibling.title }}</a></h5>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="all"><a href="{{ page.parent.url }}"><i class="icon-grid"></i></a></div>
+                    </div>
+                    <div class="col-5">
+
+                        {% if page.nextSibling.url %}
+                            <div class="next"><span class="label">Next</span>
+                                <h5><a href="{{ page.nextSibling.url }}">{{ page.nextSibling.title }}</a></h5>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+{% endembed %}

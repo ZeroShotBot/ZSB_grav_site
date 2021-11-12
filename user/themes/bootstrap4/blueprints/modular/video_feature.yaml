@@ -1,0 +1,33 @@
+title: Video Feature
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.playButtonLabel:
+              type: text
+              label: Label 
+              default: 'Play'
+              description: the label shown near play button
+            header.videoUrl:
+              type: text
+              label: Video Url
+              description: youtube / vimeo links are just fine
+            header.videoBackdrop:
+              type: filepicker
+              folder: '@self'
+              label: Select backdrop image
+              preview_images: true
+              accept:
+                - .png
+                - .jpg

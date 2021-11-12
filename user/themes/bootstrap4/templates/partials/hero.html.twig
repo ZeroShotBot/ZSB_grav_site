@@ -1,0 +1,39 @@
+{% set header_style = 'dark' %}
+
+{% set header_image = theme_var('default_header_image') %}
+{% set header_image_file = (header_image|first).name %}
+{% if page.header.hero_image %}
+    {% set header_image_media = page.media.images[page.header.hero_image] %}
+{% else %}
+    {% set header_image_media = page.media.images|first %}
+{% endif %}
+
+<!--Page title-->
+<section>
+    <div class="vlt-post-media-title vlt-post-media-title--style-2 jarallax">
+        {% if header_image_media %}
+            <img class="jarallax-img" src="{{ header_image_media.url }}" alt="" loading="lazy">
+        {% else %}
+            <img class="jarallax-img" src="{{ url('theme://images/placeholders/' ~ header_image_file) }}" alt=""
+                 loading="lazy">
+        {% endif %}
+        <div class="container" style="z-index:2;position:relative;">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="lax" data-lax-translate-y="0 0, vh (vw*0.25)" data-lax-opacity="1 1, (vh*0.5) 0"
+                         data-lax-anchor=".vlt-post-media-title">
+                        <div class="vlt-section-title vlt-section-title--style-1">
+                            <h1 class="vlt-page-title__title">{{ page.title }}</h1>
+                        </div>
+                        {% if page.header.subtext %}
+                            <div class="vlt-post-meta">
+                                <span>{{ page.header.subtext }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-media-title__overlay"></div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<!--Page title-->
+<div class="vlt-page-title vlt-page-title--style-4">
+    <div class="container">
+        <div class="text-center">
+            <!--Animated block-->
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                <!--Section title-->
+                <div class="vlt-section-title vlt-section-title--style-1">
+                    <h1 class="vlt-page-title__title">{{ page.title }}</h1>
+                </div>
+            </div>
+            <div class="vlt-gap-15"></div>
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                {{ page.header.subtext }}
+            </div>
+        </div>
+        <div class="vlt-gap-120 position-relative">
+            <!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="fadeInRight" alt="" style="position: absolute; bottom: 50px; right: 0; z-index:-1; max-width: 210px; --animate-delay: .10s;" loading="lazy">
+        </div>
+    </div>
+</div>

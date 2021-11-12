@@ -1,0 +1,78 @@
+{% for section in page.header.featureSections %}
+
+<!--Section-->
+<section class="{{ section.background }} target-section">
+    <div class="container">
+        <div class="row">
+
+            {% if section.alignment == 'left' %}
+            <div class="col-lg-6 has-white-background-color">
+                <div class="vlt-gap-130"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1">
+                        <span class="vlt-section-title__subtitle">{{ section.smallTitle }}</span>
+                        <h2 class="vlt-section-title__title">{{ section.title }}</h2>
+                    </div>
+                </div>
+                <div class="vlt-gap-40"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3" style="max-width: 415px;">{{ section.content | raw }}</p>
+                </div>
+                <div class="vlt-gap-50"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                    <div class="has-black-color">
+                        <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ section.buttonUrl }}" target="_self">{{ section.buttonLabel }}<i class="icon-arrow-top-right"></i></a>
+                    </div>
+                </div>
+                <div class="vlt-gap-130"></div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="vlt-stretch-block to-right h-100">
+                    <div class="jarallax h-100 mh-550"><img class="jarallax-img" src="{{ page.media.images[section.image].quality(80).url }}" alt="" loading="lazy"></div>
+                </div>
+            </div>
+            {% endif %}
+
+
+            {% if section.alignment == 'right' %}
+            <div class="col-lg-6 p-0">
+                <div class="vlt-stretch-block to-left h-100">
+                    <div class="jarallax h-100 mh-550"><img class="jarallax-img" src="{{ page.media.images[section.image].quality(80).url }}" alt="" loading="lazy"></div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 has-white-background-color">
+                <div class="vlt-gap-130"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1"><span class="vlt-section-title__subtitle">{{ section.smallTitle }}</span>
+                        <h2 class="vlt-section-title__title">{{ section.title }}</h2>
+                    </div>
+                </div>
+                <div class="vlt-gap-40"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3" style="max-width: 415px;">{{ section.content | raw }}</p>
+                </div>
+                <div class="vlt-gap-50"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                    <div class="has-black-color">
+                        <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ section.buttonUrl }}" target="_self">{{ section.buttonLabel }}<i class="icon-arrow-top-right"></i></a>
+                    </div>
+                </div>
+                <div class="vlt-gap-130 d-none d-sm-block"></div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+<!--Section-->
+<div class="vlt-gap-130 d-none d-sm-block"></div>
+
+{% endfor %}

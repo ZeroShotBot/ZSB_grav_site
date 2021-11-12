@@ -1,0 +1,110 @@
+<!--Section-->
+<section class="position-relative">
+    <!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern-long.png') }}" data-animation-name="fadeInRight" alt="" style="position: absolute; bottom: 0; right: 0; max-width: 210px; --animate-delay: .5s;" loading="lazy">
+    <div class="vlt-gap-120"></div>
+    <div class="vlt-gap-60"></div>
+
+    {% for item in services %}
+        {% if loop.index is not divisibleby(2) %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        {% if loop.first %}
+                            <!--Particle image (only on first item)-->
+                            <img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -115px; left: -120px; max-width: 232px; --animate-delay: .5s;" loading="lazy">
+                        {% endif %}
+                        <div class="position-relative">
+                            {# <img class="vlt-particle" src="{{ item.media.images[item.header.secondaryImage].url }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -120px; right: -100px; max-width: 263px; --animate-delay: 1s;" loading="lazy"> #}
+                            <!--Simple image-->
+                            <div class="vlt-simple-image">
+                                <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                                    <div class="inside"></div>
+                                </div>
+                                {{ (item.media.images[item.header.leadImage]).cropZoom(700, 850).html|raw  }}
+                            </div>
+                        </div>
+                        <div class="vlt-gap-60--sm"></div>
+                    </div>
+                    <div class="col-md-5 offset-md-2">
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <span class="vlt-section-title__subtitle">{{ item.header.smallTitle }}</span>
+                                <h3 class="vlt-section-title__title">{{ item.header.leadTitle }}</h3>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-40"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                            <p>{{ item.header.leadContent }}</p>
+                            <div class="vlt-gap-40"></div>
+                            <div class="has-black-color">
+                                <!--Styled list-->
+                                <ul class="vlt-styled-list vlt-styled-list--style-3">
+                                    {% for listItem in item.header.specializations %}
+                                        <li>{{ listItem.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="vlt-gap-50"></div>
+                            <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ item.url }}" target="_self">{{ item.header.buttonLabel }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vlt-gap-120"></div>
+            <div class="vlt-gap-120"></div>
+        {% else %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 offset-md-2 order-md-5">
+                        {% if loop.first %}
+                            <!--Particle image (only on first item)-->
+                            <img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -115px; left: -120px; max-width: 232px; --animate-delay: .5s;" loading="lazy">
+                        {% endif %}
+                        <div class="position-relative">
+                            {# <img class="vlt-particle" src="{{ item.media.images[item.header.secondaryImage].url }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -120px; left: -100px; max-width: 263px; --animate-delay: 1s;" loading="lazy"> #}
+                            <!--Simple image-->
+                            <div class="vlt-simple-image">
+                                <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                                    <div class="inside"></div>
+                                </div>
+                                {{ (item.media.images[item.header.leadImage]).cropZoom(687, 825).html|raw  }}
+                            </div>
+                        </div>
+                        <div class="vlt-gap-60--sm"></div>
+                    </div>
+                    <div class="col-md-5">
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <span class="vlt-section-title__subtitle">{{ item.header.smallTitle }}</span>
+                                <h3 class="vlt-section-title__title">{{ item.header.leadTitle }}</h3>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-40"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                            <p>{{ item.header.leadContent }}</p>
+                            <div class="vlt-gap-40"></div>
+                            <div class="has-black-color">
+                                <!--Styled list-->
+                                <ul class="vlt-styled-list vlt-styled-list--style-3">
+                                    {% for listItem in item.header.specializations %}
+                                        <li>{{ listItem.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="vlt-gap-50"></div>
+                            <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ item.url }}" target="_self">{{ item.header.buttonLabel }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vlt-gap-120"></div>
+            <div class="vlt-gap-120"></div>
+        {% endif %}
+    {% endfor %}
+</section>

@@ -1,0 +1,59 @@
+title: Featured Services
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.smallTitle:
+              type: text
+              label: Small Upper Title
+
+        featured_services:
+          type: tab
+          title: Featured Listing
+
+          fields:
+            header.content.items:
+              type: text
+              yaml: true
+              label: Items
+              default: "'@page.descendants' : /services"
+
+            header.content.limit:
+              type: text
+              label: Max Item Count
+              default: 3
+              validate:
+                required: true
+                type: int
+                min: 1
+
+            header.content.order.by:
+              type: select
+              label: Order By
+              default: date
+              options:
+                folder: Folder
+                title: Title
+                date: Date
+                default: Default
+
+            header.content.order.dir:
+              type: select
+              label: Order
+              default: desc
+              options:
+                asc: Ascending
+                desc: Descending
+
+

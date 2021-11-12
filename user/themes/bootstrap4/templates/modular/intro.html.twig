@@ -1,0 +1,65 @@
+<section id="{% if page.header.redirect %}{{ page.header.redirect }}{% else %}{{ page.menu|lower }}{% endif %}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-4">
+                        <div class="vlt-gap-120"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1"><span class="vlt-section-title__subtitle">{{ page.header.smallTitle }}</span>
+                                <h2 class="vlt-section-title__title">{{ page.title }}</h2>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-90"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 pl-0">
+                        <!--Simple image-->
+                        <div class="vlt-simple-image">
+                            <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                                <div class="inside"></div>
+                            </div>
+                            {% set secondIntroImage = page.header.secondIntroImage %}
+                            {% if secondIntroImage %}
+                                <img src="{{ page.media.images[secondIntroImage].url }}" alt="" loading="lazy"/>
+                            {% else %}
+                                {#{% include('@images/placeholders/secondIntroImage.png') %}#}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1 col-md-6">
+                        <div class="vlt-gap-60--md"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                            <p class="fz-3">{{ page.content|markdown }}</p>
+                        </div>
+                        <div class="vlt-gap-50"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
+                            <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ page.header.introButtonUrl }}" target="_self">{{ page.header.introButtonLabel }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pr-0 vlt-custom--1599 d-none d-lg-block">
+                <!--Simple image-->
+                <div class="vlt-simple-image">
+                    <div class="vlt-gap-80"></div>
+                    <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                        <div class="inside"></div>
+                    </div>
+                    {% set firstIntroImage = page.header.firstIntroImage %}
+                    {% if firstIntroImage %}
+                        <img src="{{ page.media.images[firstIntroImage].url }}" alt="" loading="lazy"/>
+                    {% else %}
+                        {#{% include('@images/placeholders/firstIntroImage.png') %}#}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="vlt-gap-90"></div>
+    </div>
+</section>

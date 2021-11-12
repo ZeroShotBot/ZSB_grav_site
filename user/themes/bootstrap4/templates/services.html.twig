@@ -1,0 +1,10 @@
+{% embed 'partials/page.html.twig' %}
+
+    {% set collection = page.collection() %}
+
+    {% block page %}
+        {% include 'partials/service_listing.html.twig' with {'services': collection} %}
+    {% endblock %}
+
+{% endembed %}
+

@@ -1,0 +1,60 @@
+{% if page.header.background_image %}
+    {% set backgroundImage = 'background-image: url(' ~ page.media.images[page.header.background_image].url() ~ ');' %}
+{% else %}
+    {% set backgroundImage = '' %}
+{% endif %}
+
+<!--Section-->
+<section class="position-relative">
+    
+    <!--Project showcase-->
+    <div class="vlt-project-showcase vlt-project-showcase--style-5" data-navigation-anchor=".vlt-homepage-02-anchor">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="vlt-project-showcase__item">
+                        <div class="hero-overlay"></div>
+                        <video id="bv_player" class="vlt-project-showcase__image background-video" poster="{{page.media.images[page.header.background_image].url()}}" autoplay playsinline muted loop>
+                            <source src="{{  page.media.videos[page.header.video].url  }}" type="video/mp4">
+                        </video>
+                        <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
+                            <div class="vlt-project-showcase__content" data-swiper-parallax-x="-300">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h1 class="vlt-project-showcase__title has-cursor">{{ page.header.heading }}</h1>
+                                            <span class="vlt-project-showcase__category">{{ page.header.subheading }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-grow-0 flex-shrink-0">
+                            <div class="vlt-project-showcase__footer">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-11 offset-lg-1">
+                                            <div class="d-flex justify-content-between">
+                                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#" target="_self">Learn more<i class="icon-arrow-top-right"></i></a>
+
+                                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-->
+
+<script>
+    document.getElementById('bv_player').play();
+</script>

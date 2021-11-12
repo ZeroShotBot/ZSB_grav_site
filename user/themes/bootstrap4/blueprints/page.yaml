@@ -1,0 +1,55 @@
+@extends:
+    type: default
+
+title: Default
+
+rules:
+  slug:
+    pattern: "[a-z][a-z0-9_\-]+"
+    min: 2
+    max: 80
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            header.subtext:
+                type: text
+                label: Subtext
+                description: add subtext to the page header
+
+        modular_settings:
+          type: tab
+          title: Modular Content
+
+          fields:
+            header.content.items:
+              type: select
+              label: Children
+              default: '@self.modular'
+              options:
+                '@self.modular': Children
+
+            header.content.order.by:
+              type: select
+              label: Order By
+              default: default
+              options:
+                folder: Folder
+                title: Title
+                default: Default
+
+            header.content.order.dir:
+              type: select
+              label: Order
+              default: desc
+              options:
+                asc: Ascending
+                desc: Descending

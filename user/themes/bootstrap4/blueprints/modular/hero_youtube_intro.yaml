@@ -1,0 +1,60 @@
+title: Youtube Intro Hero
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            header.smallHeading:
+              type: text
+              label: Small Heading
+              help: Section's small heading.
+            header.heading:
+              type: text
+              label: Heading
+              help: Section's heading.
+            header.subtext:
+              type: text
+              label: Subtext
+              help: Section's subtext.
+            header.buttons:
+              type: list
+              label: Buttons
+              help: Buttons to link to other pages.
+              fields:
+                .icon:
+                  type: text
+                  label: Icon
+                  help: Icon's CSS class. Example.. icon-globe.
+                  placeholder: Example.. icon-globe
+                .text:
+                  type: text
+                  label: Text
+                  help: Button's label.
+                .url:
+                  type: text
+                  label: URL
+                  help: Button's URL.
+            header.videoUrl:
+              type: text
+              label: Video Url
+              description: youtube / vimeo links are just fine
+            header.videoBackdrop:
+              type: filepicker
+              folder: "@self"
+              label: Select backdrop image
+              preview_images: true
+              accept:
+                - .png
+                - .jpg
+            header.backgroundScreenColor:
+              type: colorpicker
+              label: Banner Screen Color
+              size: small
+              default: "#000000"

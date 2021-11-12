@@ -1,0 +1,103 @@
+<section>
+    <div class="container">
+        <div class="row">
+            {#<div class="col-lg-12">#}
+                {#<!--Animated block-->#}
+                {#<div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">#}
+                    {#<h2>Get in Touch</h2>#}
+                {#</div>#}
+                {#<div class="vlt-gap-60"></div>#}
+            {#</div>#}
+            <div class="col-lg-8">
+                <!--Animated block-->
+                <div class="vlt-animated-block contact__main" data-aos="fade" data-aos-delay="100" style="background-color: #f9f9f9; padding: 20px">
+                    <div class="vlt-gap-20"></div>
+                    {% include "forms/form.html.twig" %}
+                    <!-- contact-warning -->
+                    <div class="error alert alert-error alert-dismissible fade" role="alert">
+                        <strong>Uh Oh!</strong> <span class="error-message"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!-- contact-success -->
+                    <div class="success alert alert-secondary alert-dismissible fade" role="alert">
+                        <strong>Sent!</strong> <span class="success-message"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="vlt-gap-60"></div>
+            </div>
+            <div class="col-lg-4 text-lg-left text-center">
+                <div class="vlt-pl-70 vlt-pl-0--md">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6">
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                                <h5>Contact Info</h5>
+                                <div class="vlt-gap-20"></div>
+                                <p class="lh-2">{{ theme_var('footer-address') }} </p><p class="lh-2">{{ theme_var('footer-contact') }}</p>
+                            </div>
+                            <div class="vlt-gap-30"></div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="400">
+                                <div class="has-black-color">
+                                    {% for item in theme_var('footer-social') %}
+                                        <a href="{{ item.socialIconLink }}" class="vlt-social-icon vlt-social-icon--style-2 icon-large">
+                                            <i class="{{ item.socialIconClass }}" aria-hidden="true"></i>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+    <div class="container position-relative">
+        <!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -140px; right: -120px; max-width: 232px; --animate-delay: .5s;" loading="lazy">
+        <!--Animated block-->
+        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+            <!--Google map-->
+            {#<div id="map" style="height: 550px;"></div>#}
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+
+    <script>
+        $(document).ready(function () {
+            var form = $('.contact__main form');
+            form.submit(function (e) {
+                // prevent form submission
+                e.preventDefault();
+                // submit the form via Ajax
+                $.ajax({
+                    url: form.attr('action'),
+                    type: form.attr('method'),
+                    dataType: 'html',
+                    data: form.serialize(),
+                    success: function (result) {
+                        // Inject the result in the HTML
+                        $('.success.alert').addClass('show');
+                        $('.success-message').html(result);
+                        form.trigger("reset");
+                    },
+                    error: function (result, xhr, ajaxOptions, thrownError) {
+                        $('.error.alert').show();
+                        $('.error-message').html(result);
+                    }
+
+                });
+            });
+        });
+    </script>
+
+</section>
+<!-- end s-contact -->

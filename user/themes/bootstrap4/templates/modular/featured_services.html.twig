@@ -1,0 +1,32 @@
+{% set collection = page.collection() %}
+<section>
+    <div class="vlt-gap-100"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 offset-md-1">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0"><span class="vlt-display-1 has-primary-color">{{ page.header.smallTitle }}</span>
+                </div>
+                <div class="vlt-gap-30"></div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1">
+                        <h2 class="vlt-section-title__title">{{ page.title }}</h2>
+                    </div>
+                </div>
+                <div class="vlt-gap-40--sm"></div>
+            </div>
+            <div class="col-md-5">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    {{ page.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'partials/service_listing.html.twig' with {'services': collection} %}

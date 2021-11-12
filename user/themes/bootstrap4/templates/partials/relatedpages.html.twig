@@ -1,0 +1,15 @@
+<div class="vlt-widget vlt-widget--recent-posts">
+    <h5 class="vlt-widget__title">Related Posts</h5>
+    {% for related_path, score in related_pages %}
+        {% set related = grav['pages'].get(related_path) %}
+        {% if related %}
+        <!--Post-->
+        <div class="vlt-widget-post">
+            {#<div class="vlt-widget-post__thumbnail"><a href="#"><img src="{{ (related.media.images|first).url }}" alt="" loading="lazy"></a></div>#}
+            <div class="vlt-widget-post__content"><span>{{ related.date|date("F j, Y") }}</span>
+                <h5><a href="{{ related.url }}" title="{{ related.title }}">{{ related.title }}</a></h5>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>

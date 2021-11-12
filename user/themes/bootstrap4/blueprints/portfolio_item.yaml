@@ -1,0 +1,62 @@
+title: Portfolio Item
+@extends:
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+
+      fields:
+        services:
+          type: tab
+          title: Portfolio Item
+
+          fields:
+
+            header.portfolioImage:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Portfolio Image
+              description: choose the portfolio image
+
+            header.features:
+              type: list
+              label: Bulleted Features
+              fields:
+                .name:
+                  type: text
+                  label: feature
+
+        modular_settings:
+          type: tab
+          title: Modular Content
+
+          fields:
+            header.content.items:
+              type: select
+              label: Children
+              default: '@self.modular'
+              options:
+                '@self.modular': Children
+
+            header.content.order.by:
+              type: select
+              label: Order By
+              default: default
+              options:
+                folder: Folder
+                title: Title
+                default: Default
+
+            header.content.order.dir:
+              type: select
+              label: Order
+              default: desc
+              options:
+                asc: Ascending
+                desc: Descending

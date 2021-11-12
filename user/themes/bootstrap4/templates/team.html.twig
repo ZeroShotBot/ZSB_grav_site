@@ -1,0 +1,70 @@
+{% embed 'partials/page.html.twig' %}
+
+    {% set collection = page.collection() %}
+
+    {% block page %}
+        <section>
+            <div class="vlt-gap-60"></div>
+            <div class="container position-relative">
+                {#<!--Particle image--><img class="vlt-particle"#}
+                                          {#src="{{ url('theme://images/root/square-plus-pattern.png') }}"#}
+                                          {#data-animation-name="fadeInUp" alt=""#}
+                                          {#style="position: absolute; top: -140px; right: -120px; max-width: 232px; --animate-delay: .5s;"#}
+                                          {#loading="lazy">#}
+                <div class="row">
+
+                    {% for profile in collection %}
+                    <div class="col-lg-3 col-md-6">
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="{{ loop.index0 }}0">
+                            <!--Team member-->
+                            <div class="vlt-team-member vlt-team-member--style-1">
+                                <div class="vlt-team-member__avatar">
+                                    {%  if profile.visible  %}
+                                    <a href="{{ profile.url }}">
+                                        {% if profile.header.photo %}
+                                            {{ (profile.media.images[profile.header.photo]).cropZoom(500, 500).html|raw  }}
+                                        {% else %}
+                                            <img src="{{ url('theme://images/placeholders/profile_placeholder.jpg?cropZoom=500,500') }}" alt="" loading="lazy">
+                                        {% endif %}
+                                    </a>
+                                    {%  else  %}
+                                        {% if profile.header.photo %}
+                                            {{ (profile.media.images[profile.header.photo]).cropZoom(500, 500).html|raw  }}
+                                        {% else %}
+                                            <img src="{{ url('theme://images/placeholders/profile_placeholder.jpg?cropZoom=500,500') }}" alt="" loading="lazy">
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if profile.header.social %}
+                                    <div class="vlt-team-member__socials">
+                                        {% for icon in profile.header.social %}
+                                        <a class="vlt-social-icon vlt-social-icon--style-4" href="{{ icon.socialIconLink }}" alt="{{ icon.socialIconText }}" target="_blank">
+                                            <i class="{{ icon.socialIconClass }}"></i>
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="vlt-team-member__content">
+                                    <h5 class="vlt-team-member__name">
+                                        {%  if profile.visible == true or profile.visible is null %}
+                                            <a href="{{ profile.url }}">{{ profile.title }}</a>
+                                        {%  else  %}
+                                            {{ profile.title }}
+                                        {% endif %}
+                                    </h5>
+                                    <p class="vlt-team-member__function">{{ profile.header.role }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-40"></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
+
+{% endembed %}

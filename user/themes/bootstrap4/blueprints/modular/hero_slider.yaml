@@ -1,0 +1,74 @@
+title: Hero Slider
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        heroUnit:
+          type: tab
+          title: Hero Slider
+          fields:
+            banners:
+              type: section
+              title:  Banner Slides
+              underline: true
+            header.slides:
+              name: slides
+              type: list
+              style: vertical
+              label: Slides
+              fields:
+                .background_image:
+                  type: filepicker
+                  folder: '@self'
+                  description: Best Experience With Dimensions - 3000x2000px.
+                  preview_images: true
+                  acccept:
+                      - .png
+                      - .jpg
+                  label: Select Banner Background
+                  help: upload the background image of the slide
+                .subheading:
+                  type: text
+                  label: Sub Heading
+                  help: smaller heading above large header
+                .heading:
+                  type: text
+                  label: Heading
+                  help: specify the large heading of the slide
+                .description:
+                  type: textarea
+                  rows: 3
+                  label: Description
+                  help: specify the subtext or description of the slide
+                .button_label:
+                  label: Button Label
+                  type: text
+                  help: call to action button text
+                .button_url:
+                  label: Button Url
+                  type: text
+                  help: call to action button Url
+            social:
+              type: section
+              title: Social Icons
+              text: Enter Banner Social Icons
+              underline: true
+              fields:
+                header.social:
+                  type: list
+                  label: Social icons
+                  style: vertical
+                  fields:
+                    .socialIconClass:
+                      type: iconpicker
+                      label: Icon Class
+                    .socialIconText:
+                      type: text
+                      label: Icon Name
+                    .socialIconLink:
+                      type: text
+                      label: Url

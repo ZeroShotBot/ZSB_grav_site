@@ -1,0 +1,27 @@
+title: Hero
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            header.backgroundImage:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Banner Image
+              help: upload the banner image
+            header.backgroundScreenColor:
+              type: colorpicker
+              label: Banner Screen Color
+              size: small
+              default: '#000000'

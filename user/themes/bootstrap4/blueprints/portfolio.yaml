@@ -1,0 +1,109 @@
+title: Portfolio
+@extends:
+    type: default
+    context: blueprints://pages
+
+child_type: portrfolio_item
+
+
+title: Default
+
+rules:
+  slug:
+    pattern: "[a-z][a-z0-9_\-]+"
+    min: 2
+    max: 80
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            header.subtext:
+                type: text
+                label: Subtext
+                description: add subtext to the page header
+            header.lead:
+                type: text
+                label: Lead Title
+                description: lead title on page
+            featuredClients:
+                type: section
+                title: Featured Clients
+                underline: true
+                fields:
+                 header.featuredClients:
+                   type: list
+                   style: vertical
+                   label: Client Logo
+                   fields:
+                     .logo:
+                       type: filepicker
+                       folder: '@self'
+                       label: Select client logo
+                       preview_images: true
+                       accept:
+                         - .png
+                         - .jpg
+                     .title:
+                       type: text
+                       label: Title
+        advanced:
+          fields:
+            overrides:
+              fields:
+                header.child_type:
+                  default: portfolio_item
+        services:
+          type: tab
+          title: Portfolio List
+
+          fields:
+            header.content.items:
+              type: select
+              label: Portfolio Items
+              default: '@self.children'
+              options:
+                '@self.children': Children
+
+            header.content.limit:
+              type: text
+              label: Max Item Count
+              default: 5
+              validate:
+                required: true
+                type: int
+                min: 1
+
+            header.content.order.by:
+              type: select
+              label: Order By
+              default: date
+              options:
+                folder: Folder
+                title: Title
+                date: Date
+                default: Default
+
+            header.content.order.dir:
+              type: select
+              label: Order
+              default: desc
+              options:
+                asc: Ascending
+                desc: Descending
+
+            header.content.pagination:
+              type: toggle
+              label: Pagination
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled

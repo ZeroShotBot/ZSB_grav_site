@@ -1,0 +1,98 @@
+{% embed 'partials/page.html.twig' %}
+
+
+    {% block page %}
+        <section>
+            <div class="vlt-gap-120"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 offset-md-2 order-md-5">
+                            <!--Particle image (only on first item)-->
+                            <img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -115px; left: -120px; max-width: 232px; --animate-delay: .5s;" loading="lazy">
+                        <div class="position-relative">
+                            <img class="vlt-particle" src="{{ page.media.images[page.header.secondaryImage].url }}" data-animation-name="fadeInUp" alt="" style="position: absolute; top: -120px; left: -100px; max-width: 263px; --animate-delay: 1s;" loading="lazy">
+                            <!--Simple image-->
+                            <div class="vlt-simple-image">
+                                <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                                    <div class="inside"></div>
+                                </div>
+                                {{ (page.media.images[page.header.leadImage]).cropZoom(687, 825).html|raw  }}
+                            </div>
+                        </div>
+                        <div class="vlt-gap-60--sm"></div>
+                    </div>
+                    <div class="col-md-5">
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <span class="vlt-section-title__subtitle">{{ page.header.smallTitle }}</span>
+                                <h3 class="vlt-section-title__title">{{ page.header.leadTitle }}</h3>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-40"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                            <p>{{ page.header.leadContent }}</p>
+                            <div class="vlt-gap-40"></div>
+                            <div class="has-black-color">
+                                <!--Styled list-->
+                                <ul class="vlt-styled-list vlt-styled-list--style-3">
+                                    {% for listItem in page.header.specializations %}
+                                        <li>{{ listItem.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="vlt-gap-50"></div>
+                            <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ base_url }}/contact" target="_self">Get started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="vlt-gap-120"></div>
+        {% for module in page.collection() %}
+            {#<div class="modular-anchor" id="{{ macro.pageLinkName(module.menu) }}"></div>#}
+            {{ module.content|raw }}
+        {% endfor %}
+        <div class="container position-relative" style="z-index:1">
+            <div class="vlt-post__content">
+                {{ page.content }}
+            </div>
+        </div>
+        <div class="vlt-gap-50"></div>
+
+    {% endblock %}
+
+    {% block pagination %}
+        <!--Page navigation-->
+        <section class="vlt-page-navigation vlt-page-navigation--style-2">
+            <div class="container">
+                <div class="row no-gutters align-items-stretch">
+                    <div class="col-5">
+
+                        {% if page.prevSibling.url %}
+                            <div class="prev"><span class="label">Previous</span>
+                                <h5><a href="{{ page.prevSibling.url }}">{{ page.prevSibling.title }}</a></h5>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="all"><a href="{{ page.parent.url }}"><i class="icon-grid"></i></a></div>
+                    </div>
+                    <div class="col-5">
+
+                        {% if page.nextSibling.url %}
+                            <div class="next"><span class="label">Next</span>
+                                <h5><a href="{{ page.nextSibling.url }}">{{ page.nextSibling.title }}</a></h5>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+{% endembed %}

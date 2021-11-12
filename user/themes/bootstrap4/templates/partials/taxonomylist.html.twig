@@ -1,0 +1,13 @@
+{% set taxlist = taxonomylist.getChildPagesTags() %}
+
+{% if taxlist %}
+    <!--Widget-->
+    <div class="vlt-widget vlt-widget--tagcloud">
+    <h5 class="vlt-widget__title">Tags</h5>
+        {% for tax, value in taxlist[taxonomy] %}
+            <a href="{{ base_url }}/tag:{{ tax }}">{{ tax }}</a>
+        {% endfor %}
+    </div>
+{% endif %}
+
+

@@ -1,0 +1,70 @@
+<!--Section-->
+<section class="position-relative">
+    <!--Site fixed bar-->
+    <div class="vlt-site-fixed-bar vlt-site-fixed-bar--right has-white-color position-absolute">
+        <div class="flex-grow-0 flex-shrink-0"></div>
+        <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center justify-content-center">
+            <div class="vlt-swiper-progress vlt-homepage-12-anchor" data-direction="vertical"><span class="current"></span>
+                <div class="bar"><span></span></div><span class="total"></span>
+            </div>
+        </div>
+        <div class="flex-grow-0 flex-shrink-0 text-center"></div>
+    </div>
+
+    <!--Project showcase-->
+    <div class="vlt-project-showcase vlt-project-showcase--style-7" data-navigation-anchor=".vlt-slider-anchor">
+        <div class="vlt-project-showcase__footer">
+            <ul class="vlt-project-showcase__navigation">
+                {% for slide in page.header.slides %}
+                    <li>{{ slide.heading }}</li>
+                {% endfor %}
+            </ul>
+            <!--Slider controls-->
+            <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-slider-anchor has-white-color" data-direction="vertical">
+                <div class="vlt-swiper-button-prev">Prev
+                </div><span class="sep">|</span>
+                <div class="vlt-swiper-button-next">Next
+                </div>
+            </div>
+
+            {% if page.header.social %}
+            <div class="vlt-project-showcase__socials has-white-color">
+                {% for icon in page.header.social %}
+                <a class="vlt-social-icon vlt-social-icon--style-4" href="{{ icon.socialIconLink }}" target="_blank">
+                    <i class="{{ icon.socialIconClass }}" aria-hidden="true"></i>
+                    {#<span>{{ icon.socialIconText }}</span></a>#}
+                </a>
+                {% endfor %}
+            </div> <!-- end home-social -->
+            {% endif %}
+        </div>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for slide in page.header.slides %}
+                <div class="swiper-slide">
+                    <div class="vlt-project-showcase__item">
+                        <div class="vlt-project-showcase__image" style="background-image: url('{{ page.media.images[slide.background_image].quality(80).url }}');"></div>
+                        <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
+                            <div class="vlt-project-showcase__content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-7"><span class="vlt-project-showcase__subtitle d-none d-sm-block">{{ slide.subheading }}</span>
+                                            <h1 class="vlt-project-showcase__title">{{ slide.heading }}</h1>
+                                        </div>
+                                    </div>
+                                    <div class="vlt-project-showcase__info">
+                                        <p class="vlt-project-showcase__text">{{ slide.description }}</p>
+                                        <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="{{ slide.button_url }}" target="_self">{{ slide.button_label }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section-->

@@ -1,0 +1,16 @@
+<!--Widget-->
+<div class="vlt-widget vlt-widget--categories">
+    <h5 class="vlt-widget__title">Archives</h5>
+    <ul>
+    {% for month,post_items in archives_data %}
+        <li>
+            <a href="{{ base_url }}/{{ config.plugins.archives.taxonomy_names.month }}{{ config.system.param_sep }}{{ month|date('M_Y')|lower|e('url') }}">
+                {{ month|date('F Y') }}
+                {% if archives_show_count %}
+                    <span>({{ post_items|length }})</span>
+                {% endif %}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

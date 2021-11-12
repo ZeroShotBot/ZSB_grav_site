@@ -1,0 +1,110 @@
+name: V75 Bootstrap4
+version: 1.2.0
+description: "V75 Bootstrap4 is built using the popular **Bootstrap 4** Framework"
+icon: bold
+author:
+  name: Eldon Marks
+  email: eldon.marks@v75inc.com
+  url: https://v75inc.com
+homepage: https://github.com/trilbymedia/grav-theme-bootstrap4
+keywords: bootstrap, bootstrap4, theme, framework
+bugs: https://github.com/trilbymedia/grav-theme-bootstrap4/issues
+license: MIT
+
+dependencies:
+  - { name: bootstrapper}
+  - { name: grav, version: '>=1.5.10' }
+
+form:
+  validation: strict
+  fields:
+    header_section:
+      type: section
+      title: Header Defaults
+      underline: true
+
+    custom_logo:
+      type: file
+      label: Custom Logo
+      size: large
+      destination: 'theme://images/logo'
+      multiple: false
+      markdown: true
+      description: Will be used instead of default logo `theme://images/logo.svg`
+      accept:
+        - image/*
+
+    custom_logo_white:
+      type: file
+      label: Custom Logo White
+      size: large
+      destination: 'theme://images/logo_white'
+      multiple: false
+      markdown: true
+      description: Will be used instead of default logo `theme://images/logo_white.svg`
+      accept:
+        - image/*
+
+    default_header_image:
+      type: file
+      label: Default Header Image
+      size: large
+      destination: 'theme://images/placeholders/default_header_image'
+      multiple: false
+      description: Will be used if header image for page is not specified
+      accept:
+        - image/*
+
+    footer_section:
+      type: section
+      title: Footer Defaults
+      underline: true
+    footer-address:
+      type: text
+      label: Address
+    footer-copyright:
+      type: text
+      label: Copyright Bottom Message
+    footer-contact:
+      type: text
+      label: Contact Information
+    footer-social:
+      type: list
+      label: Social icons
+      style: vertical
+      fields:
+        .socialIconClass:
+          type: text
+          label: Icon Class
+        .socialIconText:
+          type: text
+          label: Icon Name
+        .socialIconLink:
+          type: text
+          label: Url
+
+    navbar_style:
+      type: select
+      label: NavBar Style
+      size: small
+      default: navbar-light
+      options:
+        navbar-dark: Dark
+        navbar-light: Light
+
+    navbar_bgcolor:
+      type: colorpicker
+      label: NavBar BG Color
+      size: small
+      default: '#ffffff'
+
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool

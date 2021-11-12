@@ -1,0 +1,26 @@
+<!--Section-->
+<section class="jarallax"><img class="jarallax-img" src="{{ page.media.images[page.header.backgroundImage].url }}" alt="" loading="lazy">
+    <div class="vlt-gap-130"></div>
+    <div class="container" style="z-index:2;position:relative;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <h2 class="has-white-color">{{ page.title }}</h2>
+                </div>
+                <div class="vlt-gap-20"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="has-white-color fz-3">{{ page.content | striptags }}</p>
+                </div>
+                <div class="vlt-gap-40"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                    <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn--white" href="{{ page.header.actionButtonLink }}" target="_self">{{ page.header.actionButtonLabel }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-130"></div>
+    <div style="position:absolute;left:0;top:0;bottom:0;right:0;z-index:1;background-color:{{ page.header.backgroundScreenColor }}"></div>
+</section>

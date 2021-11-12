@@ -1,0 +1,17 @@
+title: Page Title
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+           header.subtext:
+             type: text
+             label: Subtext
+             description: add subtext to the page title

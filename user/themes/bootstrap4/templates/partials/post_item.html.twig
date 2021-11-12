@@ -1,0 +1,58 @@
+
+{% set header_image = page.header.header_image|defined(true) %}
+{% set header_image_width  = page.header.header_image_width|defined(900) %}
+{% set header_image_height = page.header.header_image_height|defined(300) %}
+{% set header_image_file = page.header.header_image_file %}
+{% set _header_image = theme_var('default_header_image') %}
+{% set _header_image_file = (_header_image|first).name %}
+
+<!--Post item-->
+<article class="vlt-post vlt-post--style-1">
+    <div class="vlt-post__media"><a class="vlt-post__link" href="{{ page.url }}"></a>
+        {% if big_header %}
+            {{ page.media.images|first.cropZoom(900,600).html('','blog-header-image')|raw }}
+        {% elseif header_image %}
+            {% if header_image_file %}
+                {% set header_image_media = page.media.images[header_image_file] %}
+            {% else %}
+                {% set header_image_media = page.media.images|first %}
+            {% endif %}
+            {{ header_image_media.cropZoom(header_image_width, header_image_height).html('','blog-header-image')|raw }}
+        {% else %}
+            <img class="jarallax-img" src="{{ url('theme://images/placeholders/' ~ _header_image_file) }}" alt="" loading="lazy">
+        {% endif %}
+
+    </div>
+    <div class="vlt-post__content">
+        <header class="vlt-post__header">
+            <div class="vlt-post-meta">
+                <span>{{ page.date|date("F j, Y, g:i a") }}</span>
+                {% if page.taxonomy.tag %}
+                <span>
+                    {% for tag in page.taxonomy.tag %}
+                    <a class="badge badge-primary" href="{{ posts.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                    {% endfor %}
+                </span>
+                {% endif %}
+            </div>
+            <h3 class="vlt-post-title">
+                {% if page.header.link %}
+                {% if page.header.continue_link is not same as(false) %}
+                    <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+                {% endif %}
+                <a href="{{ page.header.link }}" target="_blank">{{ page.title }}</a>
+                {% else %}
+                <a href="{{ page.url }}">{{ page.title }}</a>
+                {% endif %}
+            </h3>
+        </header>
+        <div class="vlt-post-excerpt">
+            <p>{{ page.summary|raw }}</p>
+        </div>
+    </div>
+    <footer class="vlt-post__footer">
+        <a class="vlt-simple-link vlt-simple-link--md" href="{{ page.url }}" target="_self">Read more<i class="icon-arrow-top-right"></i></a>
+    </footer>
+    <div class="vlt-gap-30">
+</article>
+

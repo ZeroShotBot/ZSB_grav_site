@@ -1,0 +1,57 @@
+<section class="jarallax">
+    {#<img class="jarallax-img" src="{{ url('theme://images/root/single-background.png') }}" alt="" loading="lazy">#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="vlt-stretch-block to-left vlt-devide-section">
+                    <div class="position-relative d-flex align-items-end justify-content-end">
+                        <!--Content slider-->
+                        <div class="vlt-content-slider " data-navigation-anchor=".vlt-careers-single-slider-anchor" data-gap="" data-loop="" data-speed="" data-autoplay="" data-autoplay-speed="" data-slides-centered="" data-slide-settings="{}" data-free-mode="" data-slider-offset="" data-mousewheel="">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    {% for item in page.header.images %}
+                                    <div class="swiper-slide"><img src="{{ page.media.images[item.gallery_image].cropZoom(1734, 825).url }}" alt="" loading="lazy"></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <!--Slider controls-->
+                        <div class="vlt-slider-controls vlt-slider-controls--style-3 vlt-careers-single-slider-anchor has-white-color has-black-background-color position-absolute b-0 r-0">
+                            <div class="vlt-swiper-button-prev">Prev
+                            </div><span class="sep">|</span>
+                            <div class="vlt-swiper-button-next">Next
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vlt-gap-120"></div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <div style="opacity: .16;">
+                        <!--Stroke text-->
+                        <div class="vlt-stroke-text vlt-stroke-text--md">{{ page.header.left_textblock_title }}</div>
+                    </div>
+                    <h5 class="negative-top-offset-lg">{{ page.header.left_textblock_title }}</h5>
+                    <div class="vlt-gap-40"></div>
+                    <p style="max-width: 90%;">{{ page.header.left_textblock_content }}</p>
+                </div>
+                <div class="vlt-gap-60--sm"></div>
+            </div>
+            <div class="col-md-5">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                    <div style="opacity: .16;">
+                        <!--Stroke text-->
+                        <div class="vlt-stroke-text vlt-stroke-text--md">{{ page.header.right_textblock_title }}</div>
+                    </div>
+                    <h5 class="negative-top-offset-lg">{{ page.header.right_textblock_title }}</h5>
+                    <div class="vlt-gap-40"></div>
+                    <p style="max-width: 90%;">{{ page.header.right_textblock_content }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

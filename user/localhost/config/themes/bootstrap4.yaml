@@ -1,0 +1,29 @@
+navbar_style: navbar-dark
+navbar_bgcolor: '#000000'
+dropdown:
+  enabled: true
+custom_logo:
+  user/themes/bootstrap4/images/logo/zeroshotbot_black-150.png:
+    name: zeroshotbot_black-150.png
+    type: image/png
+    size: 17586
+    path: user/themes/bootstrap4/images/logo/zeroshotbot_black-150.png
+custom_logo_white:
+  user/themes/bootstrap4/images/logo/logo-white.png:
+    name: logo-white.png
+    type: image/png
+    size: 6260
+    path: user/themes/bootstrap4/images/logo/logo-white.png
+default_header_image: {  }
+footer-social:
+  -
+    socialIconClass: 'fa fa-linkedin'
+    socialIconText: 'Linked In'
+    socialIconLink: 'https://www.linkedin.com/company/zeroshotbot-inc'
+  -
+    socialIconClass: 'fa fa-facebook-square'
+    socialIconText: Facebook
+    socialIconLink: 'https://www.facebook.com/ZeroShotBot'
+footer-address: '2723 South State Street, Suite 150, Ann Arbor, Michigan, 48104, United States;  +1 (868) 203 7036'
+footer-copyright: '&copy; 2021 - ZeroShotBot Inc.'
+footer-contact: info@zeroshotbot.com

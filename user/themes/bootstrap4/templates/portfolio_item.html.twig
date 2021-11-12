@@ -1,0 +1,138 @@
+{% embed 'partials/base.html.twig' %}
+
+    {% set header_style = 'dark' %}
+
+    {% set base_url = page.parent.url %}
+    {% set feed_url = base_url %}
+
+    {% if base_url == '/' %}
+        {% set base_url = '' %}
+    {% endif %}
+
+    {% if base_url == base_url_relative %}
+        {% set feed_url = base_url~'/'~page.parent.slug %}
+    {% endif %}
+
+    {% if page.header.portfolioImage %}
+        {% set header_image_media = page.media.images[page.header.portfolioImage] %}
+    {% else %}
+        {% set header_image_media = page.media.images|first %}
+    {% endif %}
+
+    {% set _header_image = theme_var('default_header_image') %}
+    {% set _header_image_file = (_header_image|first).name %}
+
+    {% block content %}
+        {% if config.plugins.breadcrumbs.enabled %}
+            <div class="vlt-gap-90"></div>
+            <div class="container">
+                {% include 'partials/breadcrumbs.html.twig' %}
+            </div>
+        {% endif %}
+        <section>
+            <div class="vlt-gap-90 vlt-gap-20--sm"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="vlt-sticky-sidebar">
+                            <div class="vlt-gap-60--sm"></div>
+                            <div class="vlt-pl-70 vlt-pl-0--md">
+                                <!--Animated block-->
+                                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                                    <!--Section title-->
+                                    <div class="vlt-section-title vlt-section-title--style-1">
+                                        <h2 class="vlt-section-title__title">{{ page.title }}</h2>
+                                        <div class="vlt-gap-20"></div>
+                                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                                            <div>
+                                                {% if page.taxonomy.tag %}
+                                                <div>
+                                                {% for tag in page.taxonomy.tag %}
+                                                    {% if 'project' in page.taxonomy.category %}
+                                                        <a class="badge badge-primary"
+                                                           href="{{ page.parent.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                </div>
+                                                {% endif %}
+
+                                                <div><h6>{{ page.date|date("F j, Y") }}</h6></div>
+                                            </div>
+                                        </div>
+                                        <div class="vlt-gap-40"></div>
+                                        <p class="vlt-section-title__text">{{ page.content }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="vlt-gap-40"></div>
+                                <!--Animated block-->
+                                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="400">
+                                    <div class="has-black-color">
+                                        <!--Styled list-->
+                                        <ul class="vlt-styled-list vlt-styled-list--style-3">
+                                            {% for item in page.header.features %}
+                                                <li>{{ item.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="vlt-gap-40"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        {% if header_image_media %}
+
+                            {% for image in page.media.images %}
+                                <!--Simple image-->
+                                <div class="vlt-simple-image">
+                                    <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="{{ loop.index }}00">
+                                        <div class="inside"></div>
+                                    </div><img src="{{ image.url }}" alt="" loading="lazy">
+                                </div>
+                            {% endfor %}
+
+                        {% else %}
+                            <img class="jarallax-img" src="{{ url('theme://images/placeholders/' ~ _header_image_file) }}"
+                                 alt="" loading="lazy">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="vlt-gap-120"></div>
+        </section>
+
+    {% endblock %}
+
+    {% block pagination %}
+        <!--Page navigation-->
+        <section class="vlt-page-navigation vlt-page-navigation--style-2">
+            <div class="container">
+                <div class="row no-gutters align-items-stretch">
+                    <div class="col-5">
+
+                        {% if page.prevSibling.url %}
+                            <div class="prev"><span class="label">Previous</span>
+                                <h5><a href="{{ page.prevSibling.url }}">{{ page.prevSibling.title }}</a></h5>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-2 d-flex align-items-center justify-content-center">
+                        <div class="all"><a href="{{ page.parent.url }}"><i class="icon-grid"></i></a></div>
+                    </div>
+                    <div class="col-5">
+
+                        {% if page.nextSibling.url %}
+                            <div class="next"><span class="label">Next</span>
+                                <h5><a href="{{ page.nextSibling.url }}">{{ page.nextSibling.title }}</a></h5>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+{% endembed %}

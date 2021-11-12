@@ -1,0 +1,69 @@
+title: Comparison Block
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.smallTitle:
+              type: text
+              label: Small Upper Title
+            features:
+              type: section
+              title: Category Blocks
+              underline: true
+              fields:
+                header.category:
+                  type: list
+                  label: Category Block
+                  fields:
+                    .style:
+                      type: toggle
+                      label: Style
+                      default: light
+                      options:
+                        light: light
+                        dark: dark
+                    .title:
+                      type: text
+                      label: Feature Title
+                    .description:
+                      type: textarea
+                      label: Description
+                      description: enter text for section.
+                    .features:
+                      type: list
+                      label: Feature List
+                      fields:
+                        .advantage:
+                          type: toggle
+                          label: Advantage
+                          default: yes
+                          options:
+                            yes: yes
+                            no: no
+                        .name:
+                          type: text
+                          label: Feature name
+                        .description:
+                          type: text
+                          label: Feature description
+
+                    .buttonLabel:
+                      type: text
+                      label: Button Label
+                    .buttonUrl:
+                      type: text
+                      label: Button Url
+
+
+

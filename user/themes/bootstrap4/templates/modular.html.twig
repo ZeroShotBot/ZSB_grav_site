@@ -1,0 +1,22 @@
+{% extends 'partials/base.html.twig' %}
+{% import _self as macro %}
+
+{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% set first_module = page.collection()|first %}
+{% if first_module.name == 'hero.md' or first_module.name == 'hero_slider.md' or first_module.name == 'video_hero.md' or first_module.name == 'slide_deck.md' or first_module.name == 'hero_youtube_intro.md' %} 
+   {% set header_style = 'light' %}
+{% else %}
+    {% set header_style = 'dark' %}
+{% endif %}
+
+{% block content %}
+    {% for module in page.collection() %}
+        {#<div class="modular-anchor" id="{{ macro.pageLinkName(module.menu) }}"></div>#}
+        {% if module.name == 'breadcrumbs.md' and loop.first %}
+        <div class="vlt-gap-90"></div>
+        {% endif %}
+        {{ module.content|raw }}
+    {% endfor %}
+{% endblock %}

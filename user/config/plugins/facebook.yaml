@@ -1,0 +1,24 @@
+enabled: false
+built_in_css: true
+use_unitegallery_plugin: true
+facebook_page_settings:
+  section_title: null
+  page_name: null
+  page_id: null
+  date_format: 'd.m.Y \k\l\o H:i'
+  count: 7
+  filter_by_tags: null
+facebook_event_settings:
+  section_title: null
+  show_cover: true
+  page_name: null
+  events_page_id: null
+  count: 7
+facebook_album_settings:
+  use_unitegallery: true
+  album_page_id: null
+  album_name: null
+  unitegallery_theme: default
+facebook_common_settings:
+  application_id: null
+  application_secret: null

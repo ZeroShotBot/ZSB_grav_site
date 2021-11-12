@@ -1,0 +1,58 @@
+title: Team Member Profile
+@extends:
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            header.photo:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Profile Image
+              description: choose the profile image
+            header.role:
+              type: selectize
+              label: Role / Designation
+            header.skills:
+              type: list
+              label: Skills
+              fields:
+                .name:
+                  type: text
+                  label: skill
+            header.social:
+              type: list
+              label: Social profile links
+              fields:
+                .socialIconClass:
+                  type: iconpicker
+                  label: Icon Class
+                .socialIconText:
+                  type: text
+                  label: Icon Name
+                .socialIconLink:
+                  type: text
+                  label: Url
+            header.unfeatured:
+              type: toggle
+              label: Unfeatured
+              default: featured
+              description: choose yes, if you wish to omit this profile from being featured in lists elsewhere
+              options:
+                featured: No
+                unfeatured: Yes
+

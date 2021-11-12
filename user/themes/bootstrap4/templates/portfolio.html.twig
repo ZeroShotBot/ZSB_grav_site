@@ -1,0 +1,132 @@
+{% embed 'partials/page.html.twig' %}
+
+    {% set collection = page.collection() %}
+
+    {% block page %}
+<section>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+
+                {% if uri.param('tag') is not empty %}
+                    <em>Showing our work related to:</em>
+                    <div class="vlt-gap-15"></div>
+                    <div class="alert alert-primary fade show" role="alert">
+                        <em><strong>{{ uri.param('tag')|humanize }}</strong></em>
+                        <a class="close" href="{{ page.url }}" aria-label="Remove tag">
+                            <span aria-hidden="true">&times;</span>
+                        </a>
+                    </div>
+                {% endif %}
+
+                <div class="vlt-sticky-sidebar">
+                    <div class="vlt-gap-60"></div>
+                    <div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <h2 class="vlt-section-title__title">{{ header.lead }}</h2>
+                                <div class="vlt-gap-40"></div>
+                                <p class="vlt-section-title__text">{{ page.content }}</p>
+                            </div>
+                        </div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="400">
+                            <div class="row">
+                                {% for client in page.header.featuredClients %}
+                                    <div class="col-6 col-md-4">
+                                        <div class="vlt-gap-50"></div>
+                                        <!--Animated block-->
+                                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                                            <!--Partner-->
+                                            <div class="vlt-partner vlt-partner--left">
+                                                <a href="#">
+                                                    <img src="{{ page.media.images[client.logo].url }}"
+                                                         alt="{{ client.title }}"
+                                                         loading="lazy">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="vlt-gap-120"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                {% set taxlist = taxonomylist.getChildPagesTags() %}
+                {% if taxlist %}
+                    <!--Widget-->
+                    <div class="vlt-widget vlt-widget--tagcloud">
+                        {% for tax, value in taxlist['tag'] %}
+                            <a href="{{ page.url }}/tag:{{ tax }}">{{ tax }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="vlt-gap-60"></div>
+                {% for item in collection %}
+                <!--Portfolio Item-->
+                <article class="vlt-work vlt-work--style-4">
+                    <div class="vlt-work__media">
+                        {%  if item.content is not empty %}
+                        <a class="vlt-work__link has-cursor" href="{{ item.url }}"></a>
+                        {% endif %}
+                        <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                            <div class="inside"></div>
+                        </div>
+                        <img src="{{ (item.media.images[item.header.portfolioImage]).url }}" alt="" loading="lazy">
+                        <div class="vlt-work__meta">
+                            <h5 class="vlt-work__title">{{ item.title }}</h5>
+
+                            {% if item.taxonomy.tag %}
+                            <span class="vlt-work__category">
+                            {% for tag in item.taxonomy.tag %}
+                                <a class="badge badge-primary"
+                                   href="{{ item.parent.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+                            {% endfor %}
+                            </span>
+                            {% endif %}
+
+                            <div class="vlt-post-excerpt d-none d-sm-block">
+                                <p>{{ item.content | truncate(100, true) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="vlt-gap-20"></div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% set services = page.find('/services').collection() %}
+{% if services is not empty %}
+<section>
+    <div class="vlt-gap-120"></div>
+    <div class="text-center">
+    <!--Animated block-->
+    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+        <!--Section title-->
+        <div class="vlt-section-title vlt-section-title--style-1">
+            <h2 class="vlt-section-title__title">What We Do Best</h2>
+        </div>
+    </div>
+    </div>
+    <div class="vlt-gap-80"></div>
+</section>
+{% include 'partials/service_listing.html.twig' with {'services': services} %}
+{% endif %}
+
+{% endblock %}
+
+{% endembed %}
+
+
