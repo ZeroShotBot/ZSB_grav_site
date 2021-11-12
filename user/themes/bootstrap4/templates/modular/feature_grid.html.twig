@@ -24,137 +24,31 @@
 			<div class="col-lg-12 p-0">
 
 				<div class="row no-gutters">
-					<div
-						class="col-md-3">
-						<!--Animated block-->
+					{% for item in page.header.features %}
 						<div
-							class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
-							<!--Service-->
+							class="col-md-3">
+							<!--Animated block-->
 							<div
-								class="vlt-service vlt-service--style-2 service-style-dark">
-								{# <a class="vlt-service__link" href="service-single.html"></a> #}
-								<div class="vlt-service__content">
-									<div class="vlt-service__media">
-										<svg xmlns="http://www.w3.org/2000/svg" width="68" height="65">
-											<g fill="none" fill-rule="evenodd">
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M7 11H1v45h6M61 11h6v45h-6"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="1.5" d="M19.5224604 1H49.384635s4.4793262 0 4.4793262 4.5c0 4.13565.3060873 50.0025 0 54-.3060873 3.9975-4.4793262 4.5-4.4793262 4.5H19.5224604s-4.4793261-.0885-4.4793261-4.5-.0970521-49.51185 0-54C14.9460822 1 19.5224604 1 19.5224604 1z"/>
-												<path fill="#E82E31" fill-rule="nonzero" d="M36 57h-3v3h3z"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="1.5" d="M47 7H20v45h27z"/>
-												<path fill="#E82E31" d="M35.5160112 13l.7719358 2.5834816 2.8213709-1.1606445 1.7803449 1.8936131-1.3522467 2.6696819 2.4218126.8898053L42 22.4039475l-2.0575894.9055023.9472522 2.3649212-1.7803449 1.8690035-2.8594241-1.0314771-.7338826 2.3831458L32.8713157 29l-.7773719-2.3896639-2.693621 1.1578509-1.9746879-2.2016994 1.2177015-2.5681837-2.4952008-.6157734L26 19.768187l2.9912512-.7820549-1.4772786-2.6696819 2.075257-1.8936131 2.5617939 1.3976953L32.8210312 13h2.69498zM34 24c1.6575 0 3-1.3431 3-3s-1.3425-3-3-3-3 1.3431-3 3 1.3425 3 3 3z"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M26 35.5h7M26 41.5h7"/>
-											</g>
-										</svg>
-									</div>
+								class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
+								<!--Service-->
+								<div
+									class="vlt-service vlt-service--style-2 service-style-dark">
+									{# <a class="vlt-service__link" href="service-single.html"></a> #}
 									<div class="vlt-service__content">
-										<h5 class="vlt-service__title">Fast</h5>
-										<p class="vlt-service__text">Quickly build multiple bots.</p>
+										<div class="vlt-service__media">
+											{{item.vectorIcon}}
+										</div>
+										<div class="vlt-service__content">
+											<h5 class="vlt-service__title">{{item.title}}</h5>
+											<p class="vlt-service__text">{{item.description}}</p>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<div
-						class="col-md-3">
-						<!--Animated block-->
-						<div
-							class="vlt-animated-block" data-aos="fade" data-aos-delay="500">
-							<!--Service-->
-							<div class="vlt-service vlt-service--style-2 service-style-dark">
-
-								<div class="vlt-service__content">
-									<div class="vlt-service__media">
-										<svg xmlns="http://www.w3.org/2000/svg" width="80" height="62">
-											<g fill="none" fill-rule="evenodd">
-												<path fill="#E82E31" d="M76.1173339 20h3.7640188s.1146672 0 .1173339.49995c-.0026667.7983.004 10.08825 0 11.0001C79.9906865 32 79.8813527 32 79.8813527 32h-3.7640188S76 32 76 31.50005v-11.0001C76 20 76.1173339 20 76.1173339 20z"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M3.94044189 1H73.0408262s2.8919246 0 2.9404419 2.88235294c-.0485173 2.41901471.0602791 40.35294116 0 43.23529416C75.8239545 50 73.0408262 50 73.0408262 50H3.94044189S1 50 1 47.1176471V3.88235294C1 1 3.94044189 1 3.94044189 1z"/>
-												<path stroke="currentColor" stroke-width="2" d="M20.4702268 8h47.0472583s1.4378818 0 1.4702268 1.45833333c-.032345 2.32837497.0396961 29.42406247 0 32.08333337C68.8833258 43 67.5174851 43 67.5174851 43H20.4702268S19 43 19 41.5416667V9.45833333C19 8 20.4702268 8 20.4702268 8z"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="1.5" d="M9 12.5h1M9 16.5h1M9 35.5h1M9 39.5h1"/>
-												<path stroke="#E82E31" stroke-width="2" d="M9 28c1.6569 0 3-1.3431 3-3s-1.3431-3-3-3-3 1.3431-3 3 1.3431 3 3 3z"/>
-												<path stroke="#E82E31" stroke-linecap="square" stroke-width="2" d="M17 60.5h3"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M21 60.5h40"/>
-											</g>
-										</svg>
-									</div>
-									<div class="vlt-service__content">
-										<h5 class="vlt-service__title">Simple</h5>
-										<p class="vlt-service__text">No need to add intents. Just add answers.</p>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div
-						class="col-md-3">
-						<!--Animated block-->
-						<div
-							class="vlt-animated-block" data-aos="fade" data-aos-delay="400">
-							<!--Service-->
-							<div class="vlt-service vlt-service--style-2 service-style-dark">
-
-								<div class="vlt-service__content">
-									<div class="vlt-service__media">
-										<svg xmlns="http://www.w3.org/2000/svg" width="55" height="74">
-											<g fill="none" fill-rule="evenodd">
-												<path stroke="currentColor" stroke-width="2" d="M19.6575263 67c0-5.9900022-3.0862105-16.5075234-7.6575263-16.5075234 4.5713158 0 14.5-13.389099 14.5-19.4924766 0 6.1033776 9.9134211 19.4924766 14.5 19.4924766-4.5865789 0-7.6193684 10.5175212-7.6193684 16.5075234H19.6575263z"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="1.4" d="M9 25.5h16M30 25.5h16"/>
-												<path stroke="currentColor" stroke-width="1.4" d="M26.5 54c1.38 0 2.5-1.1193333 2.5-2.5S27.88 49 26.5 49 24 50.1193333 24 51.5s1.12 2.5 2.5 2.5z"/>
-												<path stroke="#E82E31" stroke-linecap="square" stroke-width="2" d="M1 58.5h7M47 58.5h7"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M38 67H15v6h23z"/>
-												<path stroke="currentColor" stroke-width="2" d="M5 3c0 21 22.2413793 21 22.2413793 21S48 24 48 3"/>
-												<path fill="#121212" fill-rule="nonzero" stroke="#E82E31" stroke-width="2" d="M5 7c1.6575 0 3-1.3431 3-3S6.6575 1 5 1 2 2.3431 2 4s1.3425 3 3 3zM49 7c1.6575 0 3-1.3431 3-3s-1.3425-3-3-3-3 1.3431-3 3 1.3425 3 3 3zM26.5 28c1.38 0 2.5-1.1193333 2.5-2.5S27.88 23 26.5 23 24 24.1193333 24 25.5s1.12 2.5 2.5 2.5z"/>
-												<path stroke="currentColor" stroke-width="1.4" d="M7.5 27c.828 0 1.5-.6717 1.5-1.5S8.328 24 7.5 24 6 24.6717 6 25.5 6.672 27 7.5 27zM47.5 27c.828 0 1.5-.6717 1.5-1.5s-.672-1.5-1.5-1.5-1.5.6717-1.5 1.5.672 1.5 1.5 1.5z"/>
-												<path stroke="currentColor" stroke-linecap="square" stroke-width="1.4" d="M26.5 32v17"/>
-											</g>
-										</svg>
-									</div>
-									<div class="vlt-service__content">
-										<h5 class="vlt-service__title">Well-Engineered</h5>
-										<p class="vlt-service__text">Built by scientists, backed by research.</p>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div
-						class="col-md-3">
-						<!--Animated block-->
-						<div
-							class="vlt-animated-block" data-aos="fade" data-aos-delay="600">
-							<!--Service-->
-							<div class="vlt-service vlt-service--style-2 service-style-dark">
-
-								<div class="vlt-service__content">
-									<div class="vlt-service__media">
-										<svg xmlns="http://www.w3.org/2000/svg" width="65" height="64">
-											<g fill="none" fill-rule="evenodd" stroke-linecap="square">
-												<path stroke="currentColor" stroke-width="2" d="M1 1h63v62H1zM1 14.5h63"/>
-												<path stroke="currentColor" stroke-width="1.5" d="M7.5 11C6.11933333 11 5 9.87995713 5 8.5S6.11933333 6 7.5 6 10 7.12004287 10 8.5 8.88066667 11 7.5 11zM16.5 11c1.3806667 0 2.5-1.12004287 2.5-2.5S17.8806667 6 16.5 6 14 7.12004287 14 8.5s1.1193333 2.5 2.5 2.5zM26.5116828 6C25.1244414 6 24 7.12004287 24 8.5s1.1244414 2.5 2.5116828 2.5h21.9766344C49.8755586 11 51 9.87995713 51 8.5S49.8755586 6 48.4883172 6H26.5116828z"/>
-												<path stroke="#E82E31" stroke-width="1.5" d="M57.5 11c1.3806667 0 2.5-1.12004287 2.5-2.5S58.8806667 6 57.5 6 55 7.12004287 55 8.5s1.1193333 2.5 2.5 2.5zM12 25.5h7"/>
-												<path stroke="currentColor" stroke-width="1.5" d="M24 25.5h29"/>
-												<path stroke="currentColor" stroke-width="2" d="M12 31.5h41"/>
-												<path stroke="#E82E31" stroke-width="2" d="M29 39H13v16h16z"/>
-												<path stroke="currentColor" stroke-width="2" d="M52 39H36v16h16z"/>
-											</g>
-										</svg>
-									</div>
-									<div class="vlt-service__content">
-										<h5 class="vlt-service__title">Powerful</h5>
-										<p class="vlt-service__text">See how your customers interact with your bot.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
-
 		</div>
-	</div>
-	<div class="vlt-gap-130"></div>
-</section>
+		<div class="vlt-gap-130"></div>
+	</section>
