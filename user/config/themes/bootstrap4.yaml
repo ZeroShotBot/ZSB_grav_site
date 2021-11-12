@@ -32,3 +32,21 @@ footer-social:
 footer-address: 'Ann Arbor, MI, USA'
 footer-copyright: '&copy; 2021 - ZeroShotBot Inc.'
 footer-contact: info@zeroshotbot.com
+navbar_secondary_links:
+  -
+    label: 'Get Access Now'
+    url: 'https://portal.zeroshotbot.com'
+    target: _blank
+  -
+    label: Login
+    url: 'https://portal.zeroshotbot.com'
+    target: _self
+navbar_footer_links:
+  -
+    label: 'Privacy Policy'
+    url: privacy
+    target: _self
+  -
+    label: 'Terms &amp; Conditions'
+    url: terms
+    target: _self

@@ -17,7 +17,80 @@ dependencies:
 
 form:
   validation: strict
+  
   fields:
+
+    navbar_section:
+      type: section
+      title: Navbar Settings
+      underline: true
+    
+    navbar_secondary_links:
+      type: list
+      label: Secondary Links
+      style: vertical
+      fields:
+        .label:
+          type: text
+          label: Label
+        .url:
+          type: text
+          label: Url
+        .target:
+          type: toggle
+          label: Open in own window?
+          highlight: 1
+          default: '_self'
+          options:
+            '_blank': Yes
+            '_self': No
+
+    navbar_footer_links:
+      type: list
+      label: Navbar Footer Links
+      style: vertical
+      fields:
+        .label:
+          type: text
+          label: Label
+        .url:
+          type: text
+          label: Url
+        .target:
+          type: toggle
+          label: Open in own window?
+          highlight: 1
+          default: '_self'
+          options:
+            '_blank': Yes
+            '_self': No
+    
+    navbar_style:
+      type: select
+      label: NavBar Style
+      size: small
+      default: navbar-light
+      options:
+        navbar-dark: Dark
+        navbar-light: Light
+
+    navbar_bgcolor:
+      type: colorpicker
+      label: NavBar BG Color
+      size: small
+      default: '#ffffff'
+
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool
+
     header_section:
       type: section
       title: Header Defaults
@@ -30,7 +103,7 @@ form:
       destination: 'theme://images/logo'
       multiple: false
       markdown: true
-      description: Will be used instead of default logo `theme://images/logo.svg`
+      description: Will be used instead of default logo `theme://images/logo.png`
       accept:
         - image/*
 
@@ -82,29 +155,3 @@ form:
         .socialIconLink:
           type: text
           label: Url
-
-    navbar_style:
-      type: select
-      label: NavBar Style
-      size: small
-      default: navbar-light
-      options:
-        navbar-dark: Dark
-        navbar-light: Light
-
-    navbar_bgcolor:
-      type: colorpicker
-      label: NavBar BG Color
-      size: small
-      default: '#ffffff'
-
-    dropdown.enabled:
-        type: toggle
-        label: Dropdown in navbar
-        highlight: 1
-        default: 1
-        options:
-          1: Enabled
-          0: Disabled
-        validate:
-          type: bool
