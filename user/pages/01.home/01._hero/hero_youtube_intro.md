@@ -7,7 +7,7 @@ subtext: 'Build your chatbot rapidly in 1 day. <br>Easy to use and maintain. No 
 buttons:
     -
         icon: null
-        text: 'Build Yours Now'
+        text: 'Build Now'
         url: 'https://portal.zeroshotbot.com'
 videoURL: 'https://youtu.be/-ulWXCq-cmI'
 backgroundScreenColor: '#000000'
