@@ -24,16 +24,6 @@ form:
               label: Lead Image
               description: choose the first image which shows in the foreground and in the header
 
-            header.secondaryImage:
-              type: filepicker
-              folder: '@self'
-              preview_images: true
-              acccept:
-                  - .png
-                  - .jpg
-              label: Secondary Image
-              description: choose the second image which shows in the background
-
             header.smallTitle:
               type: text
               label: Small Title
@@ -59,6 +49,19 @@ form:
               type: text
               label: Button Label
               default: 'Learn More'
+
+            header.buttonUrl:
+              type: text
+              label: Button URL
+
+            header.buttonTarget:
+              type: toggle
+              label: Open in own window?
+              highlight: 1
+              default: '_self'
+              options:
+                '_blank': Yes
+                '_self': No
 
         modular_settings:
           type: tab
