@@ -29,7 +29,7 @@ footer-social:
     socialIconClass: 'fa fa-facebook-square'
     socialIconText: Facebook
     socialIconLink: 'https://www.facebook.com/ZeroShotBot'
-footer-address: 'Ann Arbor, MI, USA'
+footer-address: '2723 South State Street, Suite 150, Ann Arbor, Michigan, 48104, United States;  +1 (868) 203 7036'
 footer-copyright: '&copy; 2021 - ZeroShotBot Inc.'
 footer-contact: info@zeroshotbot.com
 navbar_secondary_links:
