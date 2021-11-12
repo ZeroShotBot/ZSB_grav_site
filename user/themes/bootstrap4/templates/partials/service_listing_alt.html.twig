@@ -1,0 +1,28 @@
+<!--Section-->
+<section>
+	<div class="vlt-gap-90"></div>
+	<div class="container">
+		<div class="vlt-isotope-grid" data-columns="3" data-layout="masonry" data-x-gap="30|30" data-y-gap="60|60">
+			<div class="grid-sizer"></div>
+
+            {% for item in services %}
+			<div
+				class=" grid-item filter-development">
+				<!--Portfolio item-->
+				<article class="vlt-work vlt-work--style-4">
+					<div class="vlt-work__media">
+						<a class="vlt-work__link has-cursor" href="{{ item.url }}"></a>{{ (item.media.images[item.header.leadImage]).cropZoom(350, 450).html|raw  }}
+					</div>
+					<div class="vlt-work__meta">
+						<h5 class="vlt-work__title">
+							<a href="#" class="has-white-color">{{ item.header.leadTitle }}</a>
+						</h5>
+						<span class="vlt-work__category">{{ item.header.smallTitle }}</span>
+					</div>
+				</article>
+			</div>
+            {% endfor %}
+		</div>
+	</div>
+	<div class="vlt-gap-120"></div>
+</section>
