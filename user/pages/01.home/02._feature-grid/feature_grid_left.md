@@ -1,8 +1,7 @@
 ---
 title: 'Feature Grid'
 body_classes: modular
-heading: 'Behind ZeroShotBot'
-subtext: 'Zero Code. Zero-Shot Learning.'
+subtext: 'Zero Code. Zero-Shot Learning. Next-Gen AI'
 features:
     -
         icon: null
