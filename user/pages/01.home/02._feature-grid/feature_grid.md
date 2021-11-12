@@ -1,7 +1,7 @@
 ---
 title: 'Feature Grid'
 body_classes: modular
-subtext: 'Zero Code. Zero-Shot Learning. Next-Gen AI'
+heading: 'Zero Code. Zero-Shot Learning. Next-Gen AI'
 features:
     -
         icon: null
@@ -19,6 +19,5 @@ features:
         icon: null
         text: Powerful
         url: 'See how your customers interact with your bot.'
-cache_enable: false
 ---
 
