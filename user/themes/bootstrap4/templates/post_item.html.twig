@@ -1,119 +1,89 @@
 {% embed 'partials/base.html.twig' %}
 
-    {% set base_url = page.parent.url %}
-    {% set feed_url = base_url %}
+	{% set header_style = 'dark' %}
 
-    {% if base_url == '/' %}
-        {% set base_url = '' %}
-    {% endif %}
+	{% set base_url = page.parent.url %}
+	{% set feed_url = base_url %}
 
-    {% if base_url == base_url_relative %}
-        {% set feed_url = base_url~'/'~page.parent.slug %}
-    {% endif %}
+	{% if base_url == '/' %}
+		{% set base_url = '' %}
+	{% endif %}
 
-    {% if page.header.hero_image %}
-        {% set header_image_media = page.media.images[page.header.hero_image] %}
-    {% else %}
-        {% set header_image_media = page.media.images|first %}
-    {% endif %}
+	{% if base_url == base_url_relative %}
+		{% set feed_url = base_url~'/'~page.parent.slug %}
+	{% endif %}
 
-    {% set _header_image = theme_var('default_header_image') %}
-    {% set _header_image_file = (_header_image|first).name %}
+	{% block content %}
 
-    {% block content %}
+		{% if config.plugins.breadcrumbs.enabled %}
+			<div class="vlt-gap-90"></div>
+			<div class="container">{% include 'partials/breadcrumbs.html.twig' %}</div>
+		{% endif %}
 
-        <section>
-            <!--Page title-->
-            <div class="vlt-post-media-title vlt-post-media-title--style-2 jarallax">
-                {% if header_image_media %}
-                    <img class="jarallax-img" src="{{ header_image_media.url }}" alt="" loading="lazy">
-                {% else %}
-                    <img class="jarallax-img" src="{{ url('theme://images/placeholders/' ~ _header_image_file) }}"
-                         alt="" loading="lazy">
-                {% endif %}
-                <div class="post-media-title__overlay"></div>
-                <div class="container" style="z-index:2;position:relative;">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="lax" data-lax-translate-y="0 0, vh (vw*0.25)" data-lax-opacity="1 1, (vh*0.5) 0"
-                                 data-lax-anchor=".vlt-post-media-title">
-                                <h1 class="vlt-post-title">{{ page.title }}</h1>
+		{% include 'partials/page_title.html.twig' %}
 
-                                <div class="vlt-post-meta">
-                                    <span>{{ page.date|date("F j, Y, g:i a") }}</span>
-                                    {% if page.taxonomy.tag %}
-                                        <span>
-                                    {% for tag in page.taxonomy.tag %}
-                                        <a class="badge badge-primary"
-                                           href="{{ page.parent.url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
-                                    {% endfor %}
-                                    </span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-media-title__overlay"></div>
-            </div>
-        </section>
+		<div class="container">
+			<div class="vlt-gap-50"></div>
+			<div class="row">
+				<div class="col-sm-8 blog-main">
 
-        <div class="container">
+					<div class="vlt-post__content">
+						<div class="vlt-post-excerpt">
+							<p>{{ page.content }}</p>
+						</div>
+					</div>
 
-            {% if config.plugins.breadcrumbs.enabled %}
-                {% include 'partials/breadcrumbs.html.twig' %}
-            {% endif %}
-            <div class="vlt-gap-50"></div>
-            <div class="row">
-                <div class="col-sm-8 blog-main">
+				</div>
 
-                    <div class="vlt-post__content">
-                        <div class="vlt-post-excerpt">
-                            <p>{{ page.content }}</p>
-                        </div>
-                    </div>
+				<div class="col-sm-3 offset-sm-1 blog-sidebar">
+					{% include 'partials/post_sidebar.html.twig' with {'posts': page.parent} %}
+				</div>
+			</div>
+		</div>
 
-                </div>
+		<div class="vlt-gap-50"></div>
 
-                <div class="col-sm-3 offset-sm-1 blog-sidebar">
-                    {% include 'partials/post_sidebar.html.twig' with {'posts': page.parent} %}
-                </div>
-            </div>
-        </div>
+	{% endblock %}
 
-        <div class="vlt-gap-50"></div>
+	{% block pagination %}
+		<!--Page navigation-->
+		<section class="vlt-page-navigation vlt-page-navigation--style-2">
+			<div class="container">
+				<div class="row no-gutters align-items-stretch">
+					<div class="col-5">
 
-    {% endblock %}
+						{% if page.prevSibling.url %}
+							<div class="prev">
+								<span class="label">Previous</span>
+								<h5>
+									<a href="{{ page.prevSibling.url }}">{{ page.prevSibling.title }}</a>
+								</h5>
+							</div>
+						{% endif %}
 
-    {% block pagination %}
-        <!--Page navigation-->
-        <section class="vlt-page-navigation vlt-page-navigation--style-2">
-            <div class="container">
-                <div class="row no-gutters align-items-stretch">
-                    <div class="col-5">
+					</div>
+					<div class="col-2 d-flex align-items-center justify-content-center">
+						<div class="all">
+							<a href="{{ page.parent.url }}">
+								<i class="icon-grid"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-5">
 
-                        {% if page.prevSibling.url %}
-                            <div class="prev"><span class="label">Previous</span>
-                                <h5><a href="{{ page.prevSibling.url }}">{{ page.prevSibling.title }}</a></h5>
-                            </div>
-                        {% endif %}
+						{% if page.nextSibling.url %}
+							<div class="next">
+								<span class="label">Next</span>
+								<h5>
+									<a href="{{ page.nextSibling.url }}">{{ page.nextSibling.title }}</a>
+								</h5>
+							</div>
+						{% endif %}
 
-                    </div>
-                    <div class="col-2 d-flex align-items-center justify-content-center">
-                        <div class="all"><a href="{{ page.parent.url }}"><i class="icon-grid"></i></a></div>
-                    </div>
-                    <div class="col-5">
-
-                        {% if page.nextSibling.url %}
-                            <div class="next"><span class="label">Next</span>
-                                <h5><a href="{{ page.nextSibling.url }}">{{ page.nextSibling.title }}</a></h5>
-                            </div>
-                        {% endif %}
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    {% endblock %}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}
 
 {% endembed %}

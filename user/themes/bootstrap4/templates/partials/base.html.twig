@@ -153,7 +153,12 @@
         </script>
         <script>
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-        </script>
+			var host = window.location.hostname;
+			if(host == 'localhost') {
+				window['ga-disable-UA-192640689-1'] = true;
+				console.log('analytics disabled');
+			}
+		</script>
 
         <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THZM9VQ" height="0" width="0" style="display:none;visibility:hidden"></iframe>

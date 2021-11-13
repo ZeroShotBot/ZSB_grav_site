@@ -24,6 +24,7 @@
 				</div>
 				<div class="vlt-gap-30--sm"></div>
 			</div>
+			{% if (collection.first) %}
 			<div class="col-md-4">
 				<div
 					class="text-md-right has-black-color">
@@ -31,11 +32,12 @@
 					<div
 						class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
 						<!--Simple link-->
-						<a class="vlt-simple-link vlt-simple-link--md has-white-color" href="use-cases" target="_self">More use cases<i class="icon-arrow-top-right"></i>
+						<a class="vlt-simple-link vlt-simple-link--md has-white-color" href="{{(collection.first).parent.url}}" target="_self">Read More<i class="icon-arrow-top-right"></i>
 						</a>
 					</div>
 				</div>
 			</div>
+			{% endif %}
 		</div>
 	</div>
 

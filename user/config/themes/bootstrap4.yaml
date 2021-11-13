@@ -15,11 +15,11 @@ custom_logo_white:
     size: 6260
     path: user/themes/bootstrap4/images/logo/logo-white.png
 default_header_image:
-  user/themes/bootstrap4/images/placeholders/default_header_image.jpg:
-    name: default_header_image.jpg
-    type: image/png
-    size: 69318
-    path: user/themes/bootstrap4/images/placeholders/default_header_image.jpg
+  user/themes/bootstrap4/images/placeholders/default_header_image/zeroshotbot_banner_dark.jpg:
+    name: zeroshotbot_banner_dark.jpg
+    type: image/jpeg
+    size: 15337
+    path: user/themes/bootstrap4/images/placeholders/default_header_image/zeroshotbot_banner_dark.jpg
 footer-social:
   -
     socialIconClass: 'fa fa-linkedin'
@@ -34,7 +34,7 @@ footer-copyright: '&copy; 2021 - ZeroShotBot Inc.'
 footer-contact: info@zeroshotbot.com
 navbar_secondary_links:
   -
-    label: 'Get Access Now'
+    label: 'Get Started'
     url: 'https://portal.zeroshotbot.com'
     target: _blank
   -

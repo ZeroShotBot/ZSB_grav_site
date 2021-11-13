@@ -1,5 +1,6 @@
 ---
-title: Resources
+title: 'In the Press'
+subtext: 'Stay updated with our latest news and activities.'
 content:
     items: '@self.children'
     limit: 5
@@ -7,6 +8,5 @@ content:
         by: date
         dir: desc
     pagination: '1'
-published: false
 ---
 

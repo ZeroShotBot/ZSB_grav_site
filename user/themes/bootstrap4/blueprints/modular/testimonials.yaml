@@ -1,0 +1,48 @@
+title: Testimonials Block
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            features:
+              type: section
+              title: Testimonials
+              underline: true
+              fields:
+                header.testimonials:
+                  type: list
+                  label: Testimonials
+                  fields:
+                    .image:
+                      type: filepicker
+                      folder: '@self'
+                      description: add client image or logo
+                      preview_images: true
+                      acccept:
+                          - .png
+                          - .jpg
+                      label: Client Photo / Logo
+                      help: upload an image of the client logo or headshot
+                    .name:
+                      type: text
+                      label: Name
+                    .designation:
+                      type: text
+                      label: Designation
+                    .content:
+                      type: textarea
+                      label: Content
+                      description: enter text for testimonial section.
+
+
+
