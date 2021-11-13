@@ -1,5 +1,5 @@
 ---
-title: 'The Artificial Podcast | Conversational AI in a Nutshell: Why is doesnt need to be stagnant'
+title: 'The Artificial Podcast | Conversational AI in a Nutshell: Why it doesnt need to be stagnant'
 link: 'https://open.spotify.com/episode/4ytxAhKruLo12UmOhql7J3?si=C-ZqBO11Qou71J3LjAuBiA&dl_branch=1&nd=1'
 media_order: zsb_post.jpg
 date: '22-08-2021 23:34'
