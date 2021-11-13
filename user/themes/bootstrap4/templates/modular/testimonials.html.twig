@@ -25,7 +25,7 @@
 										<div class="vlt-testimonial__content">“ {{item.content}} ”
                                         </div>
 										
-                                        <div class="vlt-testimonial__avatar"><img src="{{ page.media.images[item.image].quality(80).url }}" alt="" loading="lazy"></div>
+                                        <div class="vlt-testimonial__avatar" style="background-image:url({{ page.media.images[item.image].cropResize(300, 300).url }})">&nbsp;</div>
                                         <div class="vlt-gap-10"></div>
                                         <div class="vlt-testimonial__meta">
 											<div>

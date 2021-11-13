@@ -276,7 +276,10 @@ blockquote {
     margin: 0 auto;
     width: 100px;
     height: 100px;
-    display: flex;
+    background-size: contain;
+    background-position: center;
+    background-color: #fff;
+    background-repeat: no-repeat;
 }
 
 .vlt-testimonial__avatar>img {
@@ -293,6 +296,7 @@ blockquote {
 }
 
 .has-wallpaper {
+    position: relative;
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
