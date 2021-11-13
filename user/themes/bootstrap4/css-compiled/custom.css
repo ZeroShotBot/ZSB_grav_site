@@ -49,7 +49,7 @@ blockquote {
     border-left: none;
 }
 
-.vlt-project-showcase--style-7 .vlt-project-showcase__image, #jarallax-container-2 {
+.vlt-project-showcase--style-7 .vlt-project-showcase__image {
     opacity: 0.5;
 }
 
@@ -260,6 +260,10 @@ blockquote {
     overflow: hidden !important;
 }
 
+/* [id^="jarallax-container-"] {
+    clip: auto !important;
+} */
+
 .has-dark-background-color, .vlt-post__content.has-dark-background-color {
     background-color: #101010;
 }
@@ -286,4 +290,10 @@ blockquote {
 
 .vlt-section-title__subtitle {
     color: #7d8293 !important;
+}
+
+.has-wallpaper {
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
 }
