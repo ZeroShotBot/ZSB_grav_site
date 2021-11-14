@@ -2,7 +2,8 @@
 {% set logo_file = (logo|first).name %}
 {% if isFooterVisible %}
 <footer class="vlt-footer vlt-footer--style-2 vlt-footer--fixed text-lg-left text-center">
-    <div class="container">
+    <div class="container position-relative">
+        <!--Particle image--><img src="{{ url('theme://images/root/square-plus-pattern.png') }}" alt="" style="position: absolute; bottom: 50px; left: 0px; z-index:-1; opacity:0.1; max-width: 210px;" loading="lazy">
         <div class="row">
             <div class="col-lg-3">
                 <!--Widget-->
@@ -37,7 +38,7 @@
             <div class="col-lg-3 col-sm-6">
                 <!--Widget-->
                 <div class="vlt-widget vlt-widget--text vlt-widget--white">
-                    <p>{{ theme_var('footer-address') }}</p>
+                    <p>{{ theme_var('footer-address') | markdown}}</p>
                 </div>
             </div>
             <div class="col-lg-2 col-sm-6">
@@ -48,7 +49,11 @@
         <div class="row">
             <div class="col-sm-12 text-lg-right text-center">
                 <div class="vlt-gap-20"></div>
-                <small><a href="sitemap" target="_blank">sitemap</a> | {{ theme_var('footer-copyright') }}</small>
+                <small>
+                    {% for item in theme_var('navbar_footer_links') %}
+                        <a href="{{item.url}}" target="{{item.target}}">{{item.label}}</a> ○
+                    {% endfor %}
+                {{ theme_var('footer-copyright') }}</small>
                 <div class="vlt-gap-20"></div>
             </div>
         </div>

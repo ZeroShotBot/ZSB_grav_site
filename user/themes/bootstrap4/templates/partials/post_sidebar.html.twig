@@ -2,7 +2,7 @@
 {% set new_base_url = posts.url == '/' ? '' : posts.url %}
 
 {% if config.plugins.simplesearch.enabled %}
-    {% include 'partials/simplesearch_searchbox.html.twig' %}
+    {% include 'partials/simplesearch_searchbox.html.twig' with {'base_url': base_url_relative} %}
 {% endif %}
 
 {% if config.plugins.taxonomylist.enabled %}

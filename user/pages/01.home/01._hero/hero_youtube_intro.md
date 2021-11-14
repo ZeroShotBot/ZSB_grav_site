@@ -8,7 +8,7 @@ buttons:
     -
         icon: null
         text: 'Build Now'
-        url: pricing
+        url: 'https://portal.zeroshotbot.com'
 videoURL: 'https://youtu.be/-ulWXCq-cmI'
 backgroundScreenColor: '#000000'
 cache_enable: false

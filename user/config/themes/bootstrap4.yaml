@@ -29,7 +29,7 @@ footer-social:
     socialIconClass: 'fa fa-facebook-square'
     socialIconText: Facebook
     socialIconLink: 'https://www.facebook.com/ZeroShotBot'
-footer-address: '2723 South State Street, Suite 150, Ann Arbor, Michigan, 48104, United States;  +1 (868) 203 7036'
+footer-address: "**HEADQUARTERS**<br>\n2723 South State Street, Suite 150, Ann Arbor, Michigan, 48104, United States  <br>+1 (868) 203 7036\n\n**AUSTRALIA**<br>\nG01, 22 Atchision Street, St Leonards, NSW, 2065, Australia<br>+61(02) 9052 4988"
 footer-copyright: '&copy; 2021 - ZeroShotBot Inc.'
 footer-contact: info@zeroshotbot.com
 navbar_secondary_links:
@@ -50,3 +50,7 @@ navbar_footer_links:
     label: 'Terms &amp; Conditions'
     url: terms
     target: _self
+  -
+    label: Sitemap
+    url: sitemap
+    target: _blank

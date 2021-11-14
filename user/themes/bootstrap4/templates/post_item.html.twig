@@ -29,7 +29,11 @@
 
 					<div class="vlt-post__content">
 						<div class="vlt-post-excerpt">
-							<p>{{ page.content }}</p>
+							<p>{{ page.content | markdown}}</p>
+							{% if (page.header.link) %}
+							<div class="vlt-gap-50"></div>
+							<p><strong>Source:</strong> <a href="{{page.header.link}}" target="_blank" style="word-break: break-all;">{{page.header.link}}</a><p>
+							{% endif %}
 						</div>
 					</div>
 

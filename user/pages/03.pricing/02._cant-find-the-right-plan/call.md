@@ -3,7 +3,7 @@ title: 'Can''t find the right Plan?'
 body_classes: modular
 backgroundScreenColor: 'rgba(0, 0, 0, 0.00)'
 actionButtonLabel: 'Contact Us'
-actionButtonLink: 'mailto:info@zeroshotbot.com'
+actionButtonLink: contact
 cache_enable: false
 theme: light
 ---

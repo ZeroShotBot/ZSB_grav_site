@@ -7,6 +7,5 @@ content:
         dir: desc
 menu: 'Contact Us'
 subtext: 'We look forward to hearing from you...'
-published: false
 ---
 

@@ -345,3 +345,38 @@ blockquote {
     margin-top: 10px;
 }
 
+.vlt-nav--offcanvas__navigation ul.sf-menu>li>a, .vlt-nav--slide__navigation ul.sf-menu>li>a {
+    font-size: 32px;
+}
+
+.vlt-widget--links {
+    font-size: 18px;
+}
+.vlt-widget~.vlt-widget {
+    margin-top: 50px;
+}
+.vlt-nav--offcanvas__sidebar .vlt-widget+.vlt-widget {
+    margin-top: 10px;
+}
+.vlt-nav--fullscreen__mask {
+    z-index: -1;
+}
+
+.vlt-nav--offcanvas .vlt-particle, .vlt-nav--fullscreen .vlt-particle {
+    display: none;
+}
+
+.vlt-nav--offcanvas.is-open .vlt-particle, .vlt-nav--fullscreen.is-open .vlt-particle {
+    display: block;
+}
+
+@media only screen and (max-width: 767px) {
+    .vlt-nav--fullscreen__navigation ul.sf-menu li a {
+        font-size: 26px;
+        margin-bottom: 0.8em;
+    }
+    .vlt-widget--links {
+        margin-top: 20px;
+        line-height: 2;
+    }
+}

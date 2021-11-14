@@ -92,7 +92,7 @@ plans:
             -
                 description: '24/7 support'
         buttonLabel: 'Contact Us'
-        buttonUrl: 'mailto:info@zeroshotbot.com'
+        buttonUrl: contact
         buttonTarget: _self
 ---
 

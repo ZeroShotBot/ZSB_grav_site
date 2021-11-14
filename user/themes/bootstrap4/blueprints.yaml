@@ -133,7 +133,7 @@ form:
       title: Footer Defaults
       underline: true
     footer-address:
-      type: text
+      type: textarea
       label: Address
     footer-copyright:
       type: text
