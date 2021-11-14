@@ -11,6 +11,13 @@ form:
           type: tab
           title: PLUGIN_ADMIN.CONTENT
           fields:
+            header.theme:
+              type: select
+              label: Theme
+              default: 'dark'
+              options:
+                'dark': Dark
+                'light': Light
             header.backgroundImage:
               type: filepicker
               folder: '@self'

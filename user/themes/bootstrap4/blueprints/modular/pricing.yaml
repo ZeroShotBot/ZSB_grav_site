@@ -1,0 +1,83 @@
+title: Pricing Plans
+extends@: default
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            features:
+              type: section
+              title: Pricing Plans
+              underline: true
+              fields:
+                header.cols:
+                  type: select
+                  label: Plans per Row
+                  default: 4
+                  options:
+                    4: Four
+                    3: Three
+                    2: Two
+                    1: One
+                header.plans:
+                  type: list
+                  label: Pricing Plans
+                  fields:
+                    .name:
+                      type: text
+                      label: Name
+                    .price:
+                      type: text
+                      label: Price
+                    .currencySymbol:
+                      type: select
+                      label: Currency Symbol
+                      default: "$"
+                      options:
+                        "&nbsp;": None
+                        "$": "$"
+                    .unit:
+                      type: text
+                      label: Unit
+                      description: e.g. per month
+                    .featured:
+                      type: toggle
+                      label: Featured
+                      default: 0
+                      options:
+                        0: No
+                        1: Yes
+                    .features:
+                      type: list
+                      label: Features
+                      fields:
+                        .description:
+                          type: text
+                          label: Feature Description
+                    .buttonLabel:
+                      type: text
+                      label: Button Label
+                      default: 'Learn More'
+                    .buttonUrl:
+                      type: text
+                      label: Button URL
+                    .buttonTarget:
+                      type: toggle
+                      label: Open in own window?
+                      highlight: 1
+                      default: '_self'
+                      options:
+                        '_blank': Yes
+                        '_self': No    
+
+
+

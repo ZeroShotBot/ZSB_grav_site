@@ -10,6 +10,10 @@ body, .vlt-site-preloader {
     background-color: #000000;
 }
 
+.vlt-footer--style-2 {
+    background-image: none;
+}
+
 h1, h2, h3, h4, h5, h6, .vlt-nav--fullscreen__navigation>.sf-menu * {
     font-family: "Oswald";
 }
@@ -301,3 +305,43 @@ blockquote {
     background-position: center;
     background-size: cover;
 }
+
+.pricing-grid .vlt-pricing-table {
+    padding: 40px 24px 40px;   
+}
+
+@media only screen and (min-width:989px) {
+    .pricing-grid .vlt-pricing-table:not(.vlt-pricing-table--featured) {
+        margin-top: 20px;
+    }
+
+    .pricing-grid .vlt-pricing-table.vlt-pricing-table--featured .vlt-pricing-table__content {
+        min-height: 320px;
+    }
+}
+
+.pricing-grid .vlt-pricing-table__price {
+    font-size: 40px;
+    margin: 0 0 10px 0;
+}
+
+.pricing-grid .period {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: .8;
+}
+
+.pricing-grid .vlt-pricing-table__content ul li i {
+    width: 16px;
+    height: 16px;
+}
+
+.pricing-grid .vlt-pricing-table__content {
+    font-size: 0.8em;
+    min-height: 300px;
+}
+
+.pricing-grid .vlt-pricing-table__content ul li+li {
+    margin-top: 10px;
+}
+

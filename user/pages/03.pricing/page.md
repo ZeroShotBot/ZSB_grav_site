@@ -3,8 +3,8 @@ title: Pricing
 content:
     items: '@self.modular'
     order:
-        by: default
-        dir: desc
-published: false
+        by: folder
+        dir: asc
+cache_enable: false
 ---
 

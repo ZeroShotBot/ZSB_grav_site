@@ -6,17 +6,17 @@
             <div class="col-lg-6 offset-lg-3 text-center">
                 <!--Animated block-->
                 <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                    <h2 class="has-white-color">{{ page.title }}</h2>
+                    <h2 class="{{page.header.theme == 'dark'? 'has-white-color' : 'has-black-color'}}">{{ page.title }}</h2>
                 </div>
                 <div class="vlt-gap-20"></div>
                 <!--Animated block-->
                 <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                    <p class="has-white-color fz-3">{{ page.content | striptags }}</p>
+                    <p class="{{page.header.theme == 'dark'? 'has-white-color' : 'has-black-color'}} fz-3">{{ page.content | striptags }}</p>
                 </div>
                 <div class="vlt-gap-40"></div>
                 <!--Animated block-->
                 <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                    <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn--white" href="{{ page.header.actionButtonLink }}" target="_self">{{ page.header.actionButtonLabel }}</a>
+                    <!--Button--><a class="vlt-btn {{page.header.theme == 'dark'? 'vlt-btn--tertiary' : 'vlt-btn--primary'}} vlt-btn--md" href="{{ page.header.actionButtonLink }}" target="_self">{{ page.header.actionButtonLabel }}</a>
                 </div>
             </div>
         </div>
