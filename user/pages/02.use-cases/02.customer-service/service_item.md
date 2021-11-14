@@ -13,7 +13,7 @@ menu: 'ZSB in Customer Service'
 media_order: 'engagement_b_sm.jpg,engagement_a_sm.jpg'
 leadImage: engagement_a_sm.jpg
 secondaryImage: engagement_b_sm.jpg
-buttonUrl: pricing
+buttonUrl: 'https://portal.zeroshotbot.com'
 buttonTarget: _blank
 ---
 

@@ -12,7 +12,7 @@ content:
 media_order: 55593100_l-1024x683.jpg
 leadImage: 55593100_l-1024x683.jpg
 menu: 'ZSB in Service Desks'
-buttonUrl: pricing
+buttonUrl: 'https://portal.zeroshotbot.com'
 buttonTarget: _blank
 ---
 
