@@ -110,6 +110,11 @@ blockquote {
     flex-direction: column;
 }
 
+#hero_youtube_intro p.subtext {
+    color: #b3b3b3;
+    max-width: 320px;
+}
+
 @media only screen and (max-width: 991px) {
     #hero_youtube_intro {
         text-align: center !important;
@@ -118,6 +123,9 @@ blockquote {
         justify-content: center;
         padding-left: 0 !important;
         padding-bottom: 20px;
+    }
+    #hero_youtube_intro p.subtext {
+        margin: 0 auto;
     }
 }
 
