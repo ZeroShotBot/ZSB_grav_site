@@ -38,3 +38,11 @@ form:
             header.actionButtonLink:
               type: text
               label: Action Button Link
+            header.actionButtonTarget:
+              type: toggle
+              label: Open in own window?
+              highlight: 1
+              default: '_self'
+              options:
+                '_blank': Yes
+                '_self': No  

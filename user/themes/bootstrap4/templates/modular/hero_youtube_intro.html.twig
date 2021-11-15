@@ -1,7 +1,7 @@
 <!--Section-->
 <section id="hero_youtube_intro" class="jarallax has-white-color has-black-background-color">
 
-	<img class="jarallax-img" src="{{ page.media.images[page.header.videoBackdrop].url }}" alt="" loading="lazy">
+	<img class="jarallax-img" src="{{ page.media.images[page.header.backdrop].url }}" alt="" loading="lazy">
 	<div class="row no-gutters">
 		<div class="col-lg-6 vlt-column-space-to-container d-flex align-items-center to-left">
 			<div>
@@ -29,11 +29,9 @@
 				<div class="vlt-gap-50"></div>
 				<!--Animated block-->
 				<div class="vlt-animated-block">
-					{% for button in page.header.buttons %}
-						<!--Button-->
-						<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{button.url}}" target="_self" data-aos="fade" data-aos-delay="900">{{button.text}}</a>
-					{% endfor %}
-						<a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ page.header.videoUrl }}" data-fancybox data-aos="fade" data-aos-delay="1000" rel="nofollow">&nbsp;<i class="icon-play"></i>&nbsp;</a>
+					<!--Button-->
+					<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{page.header.buttonUrl}}" target="{{page.header.buttonTarget}}" data-aos="fade" data-aos-delay="900">{{page.header.buttonText}}</a>
+					<a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ page.header.videoUrl }}" data-fancybox data-aos="fade" data-aos-delay="1000" rel="nofollow">&nbsp;<i class="icon-play"></i>&nbsp;</a>
 				</div>
 			</div>
 		</div>

@@ -23,29 +23,26 @@ form:
               type: text
               label: Subtext
               help: Section's subtext.
-            header.buttons:
-              type: list
-              label: Buttons
-              help: Buttons to link to other pages.
-              fields:
-                .icon:
-                  type: text
-                  label: Icon
-                  help: Icon's CSS class. Example.. icon-globe.
-                  placeholder: Example.. icon-globe
-                .text:
+            header.buttonText:
                   type: text
                   label: Text
                   help: Button's label.
-                .url:
+            header.buttonUrl:
                   type: text
                   label: URL
                   help: Button's URL.
+            header.buttonTarget:
+                  type: toggle
+                  label: Open in own window?
+                  default: '_self'
+                  options:
+                    '_blank': Yes
+                    '_self': No  
             header.videoUrl:
               type: text
               label: Video Url
               description: youtube / vimeo links are just fine
-            header.videoBackdrop:
+            header.backdrop:
               type: filepicker
               folder: "@self"
               label: Select backdrop image

@@ -8,5 +8,6 @@ media_order: photo-1478432780021-b8d273730d8c.jpg
 backgroundImage: photo-1478432780021-b8d273730d8c.jpg
 cache_enable: false
 theme: dark
+actionButtonTarget: _blank
 ---
 

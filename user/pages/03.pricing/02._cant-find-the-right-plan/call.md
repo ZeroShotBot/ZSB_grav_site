@@ -6,6 +6,7 @@ actionButtonLabel: 'Contact Us'
 actionButtonLink: contact
 cache_enable: false
 theme: light
+actionButtonTarget: _blank
 ---
 
 We'd be more than happy to find a solution for your organization.
