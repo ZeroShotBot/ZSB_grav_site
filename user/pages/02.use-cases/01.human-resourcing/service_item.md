@@ -12,7 +12,7 @@ leadContent: 'Chatbots are revolutionizing the way HR processes and functions ar
 menu: 'ZSB in Human Resourcing'
 media_order: 44714365_l-1-1024x683.jpg
 leadImage: 44714365_l-1-1024x683.jpg
-buttonUrl: 'https://portal.zeroshotbot.com'
+buttonUrl: 'https://portal.zeroshotbot.com/signup'
 buttonTarget: _blank
 ---
 

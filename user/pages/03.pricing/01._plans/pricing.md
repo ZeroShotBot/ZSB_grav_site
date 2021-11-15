@@ -9,7 +9,7 @@ plans:
         price: Free
         currencySymbol: '&nbsp;'
         unit: forever
-        featured: '0'
+        featured: '1'
         features:
             -
                 description: 'Single bot'
@@ -20,7 +20,7 @@ plans:
             -
                 description: '1 test suite, 5 test cases'
         buttonLabel: 'Start for Free'
-        buttonUrl: 'https://portal.zeroshotbot.com'
+        buttonUrl: 'https://portal.zeroshotbot.com/signup'
         buttonTarget: _blank
     -
         name: Basic
@@ -44,14 +44,14 @@ plans:
             -
                 description: 'Support available during business hours'
         buttonLabel: 'Start 14 Day Trial'
-        buttonUrl: 'https://portal.zeroshotbot.com'
+        buttonUrl: 'https://portal.zeroshotbot.com/signup'
         buttonTarget: _blank
     -
         name: Advanced
         price: '200'
         currencySymbol: $
         unit: 'per user per month'
-        featured: '1'
+        featured: '0'
         features:
             -
                 description: '10 Bots'
@@ -68,7 +68,7 @@ plans:
             -
                 description: '24/7 support'
         buttonLabel: 'Start 14 Day Trial'
-        buttonUrl: 'https://portal.zeroshotbot.com'
+        buttonUrl: 'https://portal.zeroshotbot.com/signup'
         buttonTarget: _blank
     -
         name: 'On Prem'

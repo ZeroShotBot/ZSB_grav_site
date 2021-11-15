@@ -5,7 +5,7 @@ smallHeading: 'It''s easy peasy with'
 heading: ZeroShotBot
 subtext: 'Build your chatbot rapidly in 1 day. <br>Easy to use and maintain. No coding required.'
 buttonText: 'Build Now'
-buttonUrl: 'https://portal.zeroshotbot.com'
+buttonUrl: 'https://portal.zeroshotbot.com/signup'
 videoURL: 'https://youtu.be/-ulWXCq-cmI'
 backgroundScreenColor: '#000000'
 cache_enable: false
