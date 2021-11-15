@@ -19,5 +19,6 @@ features:
         vectorIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="65" height="64"><g fill="none" fill-rule="evenodd" stroke-linecap="square"><path stroke="currentColor" stroke-width="2" d="M1 1h63v62H1zM1 14.5h63"/><path stroke="currentColor" stroke-width="1.5" d="M7.5 11C6.11933333 11 5 9.87995713 5 8.5S6.11933333 6 7.5 6 10 7.12004287 10 8.5 8.88066667 11 7.5 11zM16.5 11c1.3806667 0 2.5-1.12004287 2.5-2.5S17.8806667 6 16.5 6 14 7.12004287 14 8.5s1.1193333 2.5 2.5 2.5zM26.5116828 6C25.1244414 6 24 7.12004287 24 8.5s1.1244414 2.5 2.5116828 2.5h21.9766344C49.8755586 11 51 9.87995713 51 8.5S49.8755586 6 48.4883172 6H26.5116828z"/><path stroke="#E82E31" stroke-width="1.5" d="M57.5 11c1.3806667 0 2.5-1.12004287 2.5-2.5S58.8806667 6 57.5 6 55 7.12004287 55 8.5s1.1193333 2.5 2.5 2.5zM12 25.5h7"/><path stroke="currentColor" stroke-width="1.5" d="M24 25.5h29"/><path stroke="currentColor" stroke-width="2" d="M12 31.5h41"/><path stroke="#E82E31" stroke-width="2" d="M29 39H13v16h16z"/><path stroke="currentColor" stroke-width="2" d="M52 39H36v16h16z"/></g></svg>'
         title: Powerful
         description: 'See how your customers interact with your bot.'
+cache_enable: false
 ---
 

@@ -2,58 +2,53 @@
 <section id="hero_youtube_intro" class="jarallax has-white-color has-black-background-color">
 
 	<img class="jarallax-img" src="{{ page.media.images[page.header.videoBackdrop].url }}" alt="" loading="lazy">
-
 	<div class="row no-gutters">
-		<div
-			class="col-lg-5 vlt-column-space-to-container to-left">
-			{# <!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/curved-shape.png') }}" data-animation-name="fadeInRight" alt="" style="position: absolute; top: 0; right: 0; max-width: 320px;" loading="lazy"> #}
-			<div class="vlt-gap-150"></div>
+		<div class="col-lg-6 vlt-column-space-to-container d-flex align-items-center to-left">
+			<div>
+				{# <!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="zoomIn" alt="" style="position: absolute; bottom: 50px; right: 0; max-width: 220px;opacity:0.1" loading="lazy"> #}
 
-			<!--Animated block-->
-			<div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-				<h6 class="has-white-color">{{ page.header.smallHeading }}</h6>
-			</div>
-
-			<!--Animated block-->
-			<div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-				<div
-					style="color: #2F2F2F;">
-					<!--Stroke text-->
-					<div class="vlt-stroke-text vlt-stroke-text--lg">ZSB
-					</div>
+				<!--Animated block-->
+					<div class="vlt-animated-block" data-aos="fade" data-aos-delay="100"> <h6 class="has-white-color">{{ page.header.smallHeading }}</h6>
 				</div>
-				<h2 class="negative-top-offset has-white-color">{{page.header.heading}}</h2>
-			</div>
-			<div class="vlt-gap-20"></div>
-			<!--Animated block-->
-			<div class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
-				<p style="color: #b3b3b3; max-width: 320px;">{{page.header.subtext}}</p>
-			</div>
-			<div class="vlt-gap-50"></div>
-			<!--Animated block-->
-			<div class="vlt-animated-block" data-aos="fade" data-aos-delay="1000">
-				{% for button in page.header.buttons %}
-					<!--Button-->
-					<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{button.url}}" target="_self">{{button.text}}</a>
-				{% endfor %}
-			</div>
-			
-		</div>
-		<div class="col-lg-7">
-			<div class="vlt-stretch-block to-right reset-mobile h-100">
-				<div
-					class="d-flex align-items-center justify-content-center h-100 mh-550">
-					<!--Video button-->
-					<div class="vlt-video-button vlt-particle" data-animation-name="fadeInUp">
-						<a href="{{ page.header.videoUrl }}" data-fancybox data-small-btn="true" rel="nofollow">
-							<i class="icon-play"></i>
-						</a>
-						<h6>Find Out More</h6>
-					</div>
 
+				<!--Animated block-->
+				<div class="vlt-animated-block">
+					<div
+						style="color: #2F2F2F;">
+						<!--Stroke text-->
+						<div class="vlt-stroke-text vlt-stroke-text--lg" data-aos="fade-right" data-aos-delay="200">ZSB
+						</div>
+					</div>
+					<h2 class="negative-top-offset has-white-color" data-aos="fade-left" data-aos-delay="250">{{page.header.heading}}</h2>
+				</div>
+				<div class="vlt-gap-20"></div>
+				<!--Animated block-->
+				<div class="vlt-animated-block" data-aos="fade-up" data-aos-delay="500">
+					<p style="color: #b3b3b3; max-width: 320px;">{{page.header.subtext}}</p>
+				</div>
+				<div class="vlt-gap-50"></div>
+				<!--Animated block-->
+				<div class="vlt-animated-block">
+					{% for button in page.header.buttons %}
+						<!--Button-->
+						<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{button.url}}" target="_self" data-aos="fade" data-aos-delay="900">{{button.text}}</a>
+					{% endfor %}
+						<a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ page.header.videoUrl }}" data-fancybox data-aos="fade" data-aos-delay="1000" rel="nofollow">&nbsp;<i class="icon-play"></i>&nbsp;</a>
 				</div>
 			</div>
 		</div>
+		{# <div class="col-lg-6 d-sm-none d-xs-none d-md-none">
+			<img class="vlt-column-space-to-container" src="{{ url('theme://images/root/zsb-ipad.png') }}" data-aos="fade-left" data-aos-delay="500" alt="" style="width:100%" loading="lazy">
+			<div class="to-right">
+				<!--Video button-->
+				<div class="vlt-video-button vlt-particle" data-aos="zoom-in" data-aos-delay="1000">
+					<a href="{{ page.header.videoUrl }}" data-fancybox data-small-btn="true" rel="nofollow">
+						<i class="icon-play"></i>
+					</a>
+					<h6>Find Out More</h6>
+				</div>
+			</div>
+		</div> #}
+
 	</div>
-    <div class="vlt-gap-120"></div>
 </section>
