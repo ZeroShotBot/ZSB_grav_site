@@ -5,7 +5,7 @@ cache_enable: false
 content:
     items:
         '@page.descendants': /posts
-    limit: 6
+    limit: 3
     order:
         by: date
         dir: desc
