@@ -3,7 +3,7 @@ timezone: null
 param_sep: ':'
 wrapped_site: false
 reverse_proxy_setup: false
-force_ssl: true
+force_ssl: false
 force_lowercase_urls: true
 custom_base_url: null
 username_regex: '^[a-z0-9_-]{3,16}$'
@@ -126,6 +126,8 @@ twig:
   autoescape: false
   undefined_functions: true
   undefined_filters: true
+  safe_functions: {  }
+  safe_filters: {  }
   umask_fix: false
 assets:
   css_pipeline: false
@@ -163,8 +165,18 @@ images:
   debug: false
   auto_fix_orientation: false
   seofriendly: false
+  cls:
+    auto_sizes: false
+    aspect_ratio: false
+    retina_scale: '1'
   defaults:
     loading: auto
+  watermark:
+    image: 'system://images/watermark.png'
+    position_y: center
+    position_x: center
+    scale: 33
+    watermark_all: false
 media:
   enable_media_timestamp: false
   unsupported_inline_types: null
@@ -185,10 +197,17 @@ session:
   path: null
 gpm:
   releases: stable
-  proxy_url: null
+  official_gpm_only: true
   method: auto
   verify_peer: true
-  official_gpm_only: true
+http:
+  method: auto
+  enable_proxy: true
+  proxy_url: null
+  proxy_cert_path: null
+  concurrent_connections: 5
+  verify_peer: true
+  verify_host: true
 accounts:
   type: regular
   storage: file
