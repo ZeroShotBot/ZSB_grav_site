@@ -35,7 +35,7 @@ footer-contact: info@zeroshotbot.com
 navbar_secondary_links:
   -
     label: 'Get Started'
-    url: 'https://portal.zeroshotbot.com'
+    url: 'https://portal.zeroshotbot.com/signup'
     target: _blank
   -
     label: Login
