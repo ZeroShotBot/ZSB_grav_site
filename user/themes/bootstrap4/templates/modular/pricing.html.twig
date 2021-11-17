@@ -24,7 +24,7 @@
 					<div
 						class="grid-item">
 						<!--Pricing table-->
-						<div class="vlt-pricing-table {% if(item.featured) %} vlt-pricing-table--featured {% endif %}">
+						<div class="vlt-pricing-table {{ (item.featured)? 'vlt-pricing-table--featured' : ''}}">
 							<div class="vlt-pricing-table__header">
 								<h4 class="vlt-pricing-table__title">{{item.name}}
 								</h4>
@@ -34,7 +34,7 @@
 								<span class="currency">{{item.currencySymbol}}</span>
 								<span class="price">{{item.price}}</span>
 							</div>
-							<div class="period">{{item.unit}}</div>
+							<div class="period">{{ (item.unit)? item.unit : '&nbsp' }}</div>
 							<div class="vlt-gap-50"></div>
 							<div class="vlt-pricing-table__content">
 								<ul>
@@ -50,11 +50,7 @@
 								class="vlt-pricing-table__action">
 								<!--Button-->
 								<a class="vlt-btn
-								{% if (item.featured) %}
-								vlt-btn--tertiary
-								{% else %}
-								vlt-btn--secondary
-								{% endif %}
+								{{ (item.featured)? 'vlt-btn--tertiary' : 'vlt-btn--secondary' }}
 								vlt-btn--sm" href="{{item.buttonUrl}}" target="{{item.buttonTarget}}">{{item.buttonLabel}}</a>
 							</div>
 						</div>
