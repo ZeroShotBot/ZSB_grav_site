@@ -43,7 +43,7 @@ plans:
                 description: 'Analytics reporting'
             -
                 description: 'Support available during business hours'
-        buttonLabel: 'Start 14 Day Trial'
+        buttonLabel: 'Start Basic Trial'
         buttonUrl: 'https://portal.zeroshotbot.com/signup'
         buttonTarget: _blank
     -
@@ -67,7 +67,7 @@ plans:
                 description: 'Analytics reporting'
             -
                 description: '24/7 support'
-        buttonLabel: 'Start 14 Day Trial'
+        buttonLabel: 'Start Advanced Trial'
         buttonUrl: 'https://portal.zeroshotbot.com/signup'
         buttonTarget: _blank
     -
@@ -91,7 +91,7 @@ plans:
                 description: 'Analytics reporting'
             -
                 description: '24/7 support'
-        buttonLabel: 'Contact Us'
+        buttonLabel: 'Get in touch'
         buttonUrl: contact
         buttonTarget: _self
 ---
