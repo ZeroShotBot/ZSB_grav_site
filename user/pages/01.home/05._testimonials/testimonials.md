@@ -11,7 +11,7 @@ testimonials:
         image: egenra_logo.png
         name: Egenera
         designation: Technology
-        content: 'Being a provider of an industry leading Cloud Platform we felt that ZeroShotBot is well placed to manage complex conversations effectively. The ease of use and user friendly platform was a big advantage for us as we needed a chatbot that can be created, maintained easily by our product team'
+        content: 'The ease of use and user friendly platform was a big advantage for us as we needed a chatbot that can be created, maintained easily by our product team'
     -
         image: AlternateLogo.png
         name: 'Alternate Energy Source'
