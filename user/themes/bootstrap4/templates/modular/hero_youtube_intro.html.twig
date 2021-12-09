@@ -29,9 +29,14 @@
 				<div class="vlt-gap-50"></div>
 				<!--Animated block-->
 				<div class="vlt-animated-block">
+					<div data-aos="fade" data-aos-delay="900">
 					<!--Button-->
-					<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{page.header.buttonUrl}}" target="{{page.header.buttonTarget}}" data-aos="fade" data-aos-delay="900">{{page.header.buttonText}}</a>
-					{# <a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{{ page.header.videoUrl }}" data-fancybox data-aos="fade" data-aos-delay="1000" rel="nofollow">&nbsp;<i class="icon-play"></i>&nbsp;</a> #}
+					{% if page.header.isCustomButton %}
+						{{ page.header.buttonSource | raw}}
+					{% else %}
+					<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{page.header.buttonUrl}}" target="{{page.header.buttonTarget}}">{{page.header.buttonText}}</a>
+					{% endif %}
+					</div>
 				</div>
 			</div>
 		</div>

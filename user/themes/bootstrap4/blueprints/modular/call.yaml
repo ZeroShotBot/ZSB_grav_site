@@ -46,3 +46,15 @@ form:
               options:
                 '_blank': Yes
                 '_self': No  
+            header.isCustomButton:
+              type: toggle
+              label: Custom button code?
+              highlight: 1
+              default: 'false'
+              options:
+                'true': Yes
+                'false': No
+            header.buttonSource:
+              type: text
+              label: Custom Button Source
+              help: Button's custom source code.
