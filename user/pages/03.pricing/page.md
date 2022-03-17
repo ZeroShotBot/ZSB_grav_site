@@ -6,5 +6,6 @@ content:
         by: folder
         dir: asc
 cache_enable: false
+published: false
 ---
 
