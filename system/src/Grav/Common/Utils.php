@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common
  *
- * @copyright  Copyright (c) 2015 - 2021 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -21,6 +21,7 @@ use Grav\Common\Page\Markdown\Excerpts;
 use Grav\Common\Page\Pages;
 use Grav\Framework\Flex\Flex;
 use Grav\Framework\Flex\Interfaces\FlexObjectInterface;
+use Grav\Framework\Media\Interfaces\MediaInterface;
 use InvalidArgumentException;
 use Negotiation\Accept;
 use Negotiation\Negotiator;
@@ -82,6 +83,7 @@ abstract class Utils
 
         $resource = false;
         if (static::contains((string)$input, '://')) {
+            // Url contains a scheme (https:// , user:// etc).
             /** @var UniformResourceLocator $locator */
             $locator = $grav['locator'];
 
@@ -133,14 +135,23 @@ abstract class Utils
                 $resource = $locator->findResource($input, false);
             }
         } else {
-            $root = $uri->rootUrl();
+            // Just a path.
+            /** @var Pages $pages */
+            $pages = $grav['pages'];
 
-            if (static::startsWith($input, $root)) {
-                $input = static::replaceFirstOccurrence($root, '', $input);
+            // Is this a page?
+            $page = $pages->find($input, true);
+            if ($page && $page->routable()) {
+                return $page->url($domain);
+            }
+
+            $root = preg_quote($uri->rootUrl(), '#');
+            $pattern = '#(' . $root . '$|' . $root . '/)#';
+            if (!empty($root) && preg_match($pattern, $input, $matches)) {
+                $input = static::replaceFirstOccurrence($matches[0], '', $input);
             }
 
             $input = ltrim($input, '/');
-
             $resource = $input;
         }
 
@@ -150,7 +161,7 @@ abstract class Utils
 
         $domain = $domain ?: $grav['config']->get('system.absolute_urls', false);
 
-        return rtrim($uri->rootUrl($domain), '/') . '/' . ($resource ?? '');
+        return rtrim($uri->rootUrl($domain), '/') . '/' . ($resource ?: '');
     }
 
     /**
@@ -652,22 +663,22 @@ abstract class Utils
      * @param bool $force_download as opposed to letting browser choose if to download or render
      * @param int $sec Throttling, try 0.1 for some speed throttling of downloads
      * @param int $bytes Size of chunks to send in bytes. Default is 1024
+     * @param array $options Extra options: [mime, download_name, expires]
      * @throws Exception
      */
-    public static function download($file, $force_download = true, $sec = 0, $bytes = 1024)
+    public static function download($file, $force_download = true, $sec = 0, $bytes = 1024, array $options = [])
     {
+        $grav = Grav::instance();
+
         if (file_exists($file)) {
             // fire download event
-            Grav::instance()->fireEvent('onBeforeDownload', new Event(['file' => $file]));
+            $grav->fireEvent('onBeforeDownload', new Event(['file' => $file, 'options' => &$options]));
 
-            $file_parts = pathinfo($file);
-            $mimetype = static::getMimeByExtension($file_parts['extension']);
+            $file_parts = static::pathinfo($file);
+            $mimetype = $options['mime'] ?? static::getMimeByExtension($file_parts['extension']);
             $size = filesize($file); // File size
 
-            // clean all buffers
-            while (ob_get_level()) {
-                ob_end_clean();
-            }
+            $grav->cleanOutputBuffers();
 
             // required for IE, otherwise Content-Disposition may be ignored
             if (ini_get('zlib.output_compression')) {
@@ -679,7 +690,7 @@ abstract class Utils
 
             if ($force_download) {
                 // output the regular HTTP headers
-                header('Content-Disposition: attachment; filename="' . $file_parts['basename'] . '"');
+                header('Content-Disposition: attachment; filename="' . ($options['download_name'] ?? $file_parts['basename']) . '"');
             }
 
             // multipart-download and download resuming support
@@ -702,8 +713,8 @@ abstract class Utils
                 $new_length = $size;
                 header('Content-Length: ' . $size);
 
-                if (Grav::instance()['config']->get('system.cache.enabled')) {
-                    $expires = Grav::instance()['config']->get('system.pages.expires');
+                if ($grav['config']->get('system.cache.enabled')) {
+                    $expires = $options['expires'] ?? $grav['config']->get('system.pages.expires');
                     if ($expires > 0) {
                         $expires_date = gmdate('D, d M Y H:i:s T', time() + $expires);
                         header('Cache-Control: max-age=' . $expires);
@@ -829,6 +840,31 @@ abstract class Utils
         return $mimetypes;
     }
 
+    /**
+     * Return all extensions for given mimetype. The first extension is the default one.
+     *
+     * @param string $mime Mime type (eg 'image/jpeg')
+     * @return string[] List of extensions eg. ['jpg', 'jpe', 'jpeg']
+     */
+    public static function getExtensionsByMime($mime)
+    {
+        $mime = strtolower($mime);
+
+        $media_types = (array)Grav::instance()['config']->get('media.types');
+
+        $list = [];
+        foreach ($media_types as $extension => $type) {
+            if ($extension === '' || $extension === 'defaults') {
+                continue;
+            }
+
+            if (isset($type['mime']) && $type['mime'] === $mime) {
+                $list[] = $extension;
+            }
+        }
+
+        return $list;
+    }
 
     /**
      * Return the mimetype based on filename extension
@@ -899,7 +935,7 @@ abstract class Utils
      */
     public static function getMimeByFilename($filename, $default = 'application/octet-stream')
     {
-        return static::getMimeByExtension(pathinfo($filename, PATHINFO_EXTENSION), $default);
+        return static::getMimeByExtension(static::pathinfo($filename, PATHINFO_EXTENSION), $default);
     }
 
     /**
@@ -944,7 +980,7 @@ abstract class Utils
     public static function checkFilename($filename)
     {
         $dangerous_extensions = Grav::instance()['config']->get('security.uploads_dangerous_extensions', []);
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $extension = static::pathinfo($filename, PATHINFO_EXTENSION);
 
         return !(
             // Empty filenames are not allowed.
@@ -956,6 +992,46 @@ abstract class Utils
             // File extension should not be part of configured dangerous extensions
             || in_array($extension, $dangerous_extensions)
         );
+    }
+
+    /**
+     * Unicode-safe version of PHP’s pathinfo() function.
+     *
+     * @link  https://www.php.net/manual/en/function.pathinfo.php
+     *
+     * @param string $path
+     * @param int|null $flags
+     * @return array|string
+     */
+    public static function pathinfo($path, int $flags = null)
+    {
+        $path = str_replace(['%2F', '%5C'], ['/', '\\'], rawurlencode($path));
+
+        if (null === $flags) {
+            $info = pathinfo($path);
+        } else {
+            $info = pathinfo($path, $flags);
+        }
+
+        if (is_array($info)) {
+            return array_map('rawurldecode', $info);
+        }
+
+        return rawurldecode($info);
+    }
+
+    /**
+     * Unicode-safe version of the PHP basename() function.
+     *
+     * @link  https://www.php.net/manual/en/function.basename.php
+     *
+     * @param string $path
+     * @param string $suffix
+     * @return string
+     */
+    public static function basename($path, string $suffix = ''): string
+    {
+        return rawurldecode(basename(str_replace(['%2F', '%5C'], '/', rawurlencode($path)), $suffix));
     }
 
     /**
@@ -1566,7 +1642,7 @@ abstract class Utils
 
         switch ($matches[0]) {
             case 'self':
-                if (null === $object) {
+                if (!$object instanceof MediaInterface) {
                     throw new RuntimeException(sprintf('Page not available for self@ reference: %s', $path));
                 }
 
@@ -1593,8 +1669,8 @@ abstract class Utils
                     $route = '/' . $matches[2];
 
                     // Exclude filename from the page lookup.
-                    if (pathinfo($route, PATHINFO_EXTENSION)) {
-                        $basename = '/' . basename($route);
+                    if (static::pathinfo($route, PATHINFO_EXTENSION)) {
+                        $basename = '/' . static::basename($route);
                         $route = \dirname($route);
                     } else {
                         $basename = '';
@@ -1640,7 +1716,7 @@ abstract class Utils
      * @param string $path
      * @return string[]|null
      */
-    private static function resolveTokenPath(string $path): ?array
+    protected static function resolveTokenPath(string $path): ?array
     {
         if (strpos($path, '@') !== false) {
             $regex = '/^(@\w+|\w+@|@\w+@)([^:]*)(.*)$/u';
@@ -1774,7 +1850,7 @@ abstract class Utils
      *
      * @param string $string
      * @param bool $block Block or Line processing
-     * @param null $page
+     * @param PageInterface|null $page
      * @return string
      * @throws Exception
      */

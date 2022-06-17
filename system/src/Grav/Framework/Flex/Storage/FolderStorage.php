@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * @package    Grav\Framework\Flex
  *
- * @copyright  Copyright (c) 2015 - 2021 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -224,6 +224,7 @@ class FolderStorage extends AbstractFilesystemStorage
      * @param string $src
      * @param string $dst
      * @return bool
+     * @throws RuntimeException
      */
     public function copyRow(string $src, string $dst): bool
     {
@@ -247,6 +248,7 @@ class FolderStorage extends AbstractFilesystemStorage
     /**
      * {@inheritdoc}
      * @see FlexStorageInterface::renameRow()
+     * @throws RuntimeException
      */
     public function renameRow(string $src, string $dst): bool
     {
@@ -350,7 +352,7 @@ class FolderStorage extends AbstractFilesystemStorage
      */
     protected function getKeyFromPath(string $path): string
     {
-        return basename($path);
+        return Utils::basename($path);
     }
 
     /**
@@ -686,7 +688,7 @@ class FolderStorage extends AbstractFilesystemStorage
                 $pattern .= '/{FILE}{EXT}';
             } else {
                 $filesystem = Filesystem::getInstance(true);
-                $this->dataFile = basename($pattern, $extension);
+                $this->dataFile = Utils::basename($pattern, $extension);
                 $pattern = $filesystem->dirname($pattern) . '/{FILE}{EXT}';
             }
         }

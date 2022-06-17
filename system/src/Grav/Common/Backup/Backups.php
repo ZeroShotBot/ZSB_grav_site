@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common\Backup
  *
- * @copyright  Copyright (c) 2015 - 2021 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -104,8 +104,8 @@ class Backups
      */
     public function getBackupDownloadUrl($backup, $base_url)
     {
-        $param_sep = $param_sep = Grav::instance()['config']->get('system.param_sep', ':');
-        $download = urlencode(base64_encode(basename($backup)));
+        $param_sep = Grav::instance()['config']->get('system.param_sep', ':');
+        $download = urlencode(base64_encode(Utils::basename($backup)));
         $url      = rtrim(Grav::instance()['uri']->rootUrl(true), '/') . '/' . trim(
             $base_url,
             '/'
@@ -144,9 +144,8 @@ class Backups
     public static function getTotalBackupsSize()
     {
         $backups = static::getAvailableBackups();
-        $size = array_sum(array_column($backups, 'size'));
 
-        return $size ?? 0;
+        return $backups ? array_sum(array_column($backups, 'size')) : 0;
     }
 
     /**

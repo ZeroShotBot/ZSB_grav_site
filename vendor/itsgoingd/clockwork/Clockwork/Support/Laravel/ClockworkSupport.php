@@ -78,10 +78,10 @@ class ClockworkSupport
 
 		if (is_array($data)) {
 			$data = array_map(function ($request) use ($except, $only) {
-				return $only ? $request->only($only) : $request->except(array_merge($except, [ 'updateToken' ]));
+				return $only ? $request->only(array_diff($only, [ 'updateToken' ])) : $request->except(array_merge($except, [ 'updateToken' ]));
 			}, $data);
 		} elseif ($data) {
-			$data = $only ? $data->only($only) : $data->except(array_merge($except, [ 'updateToken' ]));
+			$data = $only ? $data->only(array_diff($only, [ 'updateToken' ])) : $data->except(array_merge($except, [ 'updateToken' ]));
 		}
 
 		return new JsonResponse($data);
@@ -269,7 +269,9 @@ class ClockworkSupport
 			if (! $event->command || $this->isCommandFiltered($event->command)) return;
 
 			$event->output->setFormatter(
-				new Console\CapturingFormatter($event->output->getFormatter())
+				version_compare(\Illuminate\Foundation\Application::VERSION, '9.0.0', '<')
+					? new Console\CapturingLegacyFormatter($event->output->getFormatter())
+					: new Console\CapturingFormatter($event->output->getFormatter())
 			);
 		});
 
@@ -414,7 +416,7 @@ class ClockworkSupport
 				'requestId' => $clockworkRequest->id,
 				'version'   => Clockwork::VERSION,
 				'path'      => $request->getBasePath() . '/__clockwork/',
-				'webPath'   => $this->webPaths()[0] . '/app',
+				'webPath'   => $request->getBasePath() . '/' . $this->webPaths()[0] . '/app',
 				'token'     => $clockworkRequest->updateToken,
 				'metrics'   => $this->isCollectingClientMetrics(),
 				'toolbar'   => $this->isToolbarEnabled()
@@ -460,7 +462,7 @@ class ClockworkSupport
 			'tracesSkip'  => StackFilter::make()
 				->isNotVendor(array_merge(
 					$this->getConfig('stack_traces.skip_vendors', []),
-					[ 'itsgoingd', 'laravel', 'illuminate' ]
+					[ 'itsgoingd', 'laravel', 'illuminate', 'psr' ]
 				))
 				->isNotNamespace($this->getConfig('stack_traces.skip_namespaces', []))
 				->isNotFunction([ 'call_user_func', 'call_user_func_array' ])

@@ -148,6 +148,7 @@ final class CurlResponse implements ResponseInterface
         };
 
         // Schedule the request in a non-blocking way
+        $multi->lastTimeout = null;
         $multi->openHandles[$id] = [$ch, $options];
         curl_multi_add_handle($multi->handle, $ch);
 
@@ -225,13 +226,17 @@ final class CurlResponse implements ResponseInterface
 
     public function __destruct()
     {
-        curl_setopt($this->handle, \CURLOPT_VERBOSE, false);
+        try {
+            if (null === $this->timeout) {
+                return; // Unused pushed response
+            }
 
-        if (null === $this->timeout) {
-            return; // Unused pushed response
+            $this->doDestruct();
+        } finally {
+            if (\is_resource($this->handle) || $this->handle instanceof \CurlHandle) {
+                curl_setopt($this->handle, \CURLOPT_VERBOSE, false);
+            }
         }
-
-        $this->doDestruct();
     }
 
     /**
@@ -272,9 +277,17 @@ final class CurlResponse implements ResponseInterface
         try {
             self::$performing = true;
             $active = 0;
-            while (\CURLM_CALL_MULTI_PERFORM === curl_multi_exec($multi->handle, $active));
+            while (\CURLM_CALL_MULTI_PERFORM === ($err = curl_multi_exec($multi->handle, $active))) {
+            }
+
+            if (\CURLM_OK !== $err) {
+                throw new TransportException(curl_multi_strerror($err));
+            }
 
             while ($info = curl_multi_info_read($multi->handle)) {
+                if (\CURLMSG_DONE !== $info['msg']) {
+                    continue;
+                }
                 $result = $info['result'];
                 $id = (int) $ch = $info['handle'];
                 $waitFor = @curl_getinfo($ch, \CURLINFO_PRIVATE) ?: '_0';
@@ -288,6 +301,10 @@ final class CurlResponse implements ResponseInterface
                     if (0 === curl_multi_add_handle($multi->handle, $ch)) {
                         continue;
                     }
+                }
+
+                if (\CURLE_RECV_ERROR === $result && 'H' === $waitFor[0] && 400 <= ($responses[(int) $ch]->info['http_code'] ?? 0)) {
+                    $multi->handlesActivity[$id][] = new FirstChunk();
                 }
 
                 $multi->handlesActivity[$id][] = null;
@@ -325,15 +342,8 @@ final class CurlResponse implements ResponseInterface
         }
 
         if ('' !== $data) {
-            try {
-                // Regular header line: add it to the list
-                self::addResponseHeaders([$data], $info, $headers);
-            } catch (TransportException $e) {
-                $multi->handlesActivity[$id][] = null;
-                $multi->handlesActivity[$id][] = $e;
-
-                return \strlen($data);
-            }
+            // Regular header line: add it to the list
+            self::addResponseHeaders([$data], $info, $headers);
 
             if (!str_starts_with($data, 'HTTP/')) {
                 if (0 === stripos($data, 'Location:')) {
@@ -351,7 +361,6 @@ final class CurlResponse implements ResponseInterface
                 if (curl_getinfo($ch, \CURLINFO_REDIRECT_COUNT) === $options['max_redirects']) {
                     curl_setopt($ch, \CURLOPT_FOLLOWLOCATION, false);
                 } elseif (303 === $info['http_code'] || ('POST' === $info['http_method'] && \in_array($info['http_code'], [301, 302], true))) {
-                    $info['http_method'] = 'HEAD' === $info['http_method'] ? 'HEAD' : 'GET';
                     curl_setopt($ch, \CURLOPT_POSTFIELDS, '');
                 }
             }
@@ -371,7 +380,12 @@ final class CurlResponse implements ResponseInterface
         $info['redirect_url'] = null;
 
         if (300 <= $statusCode && $statusCode < 400 && null !== $location) {
-            if (null === $info['redirect_url'] = $resolveRedirect($ch, $location)) {
+            if ($noContent = 303 === $statusCode || ('POST' === $info['http_method'] && \in_array($statusCode, [301, 302], true))) {
+                $info['http_method'] = 'HEAD' === $info['http_method'] ? 'HEAD' : 'GET';
+                curl_setopt($ch, \CURLOPT_CUSTOMREQUEST, $info['http_method']);
+            }
+
+            if (null === $info['redirect_url'] = $resolveRedirect($ch, $location, $noContent)) {
                 $options['max_redirects'] = curl_getinfo($ch, \CURLINFO_REDIRECT_COUNT);
                 curl_setopt($ch, \CURLOPT_FOLLOWLOCATION, false);
                 curl_setopt($ch, \CURLOPT_MAXREDIRS, $options['max_redirects']);
