@@ -13,12 +13,11 @@
 
 				<!--Animated block-->
 				<div class="vlt-animated-block">
-					<div
-						style="color: #2F2F2F;">
+					{# <div style="color: #2F2F2F;">
 						<!--Stroke text-->
 						<div class="vlt-stroke-text vlt-stroke-text--lg" data-aos="fade-right" data-aos-delay="200">ZSB
 						</div>
-					</div>
+					</div> #}
 					<h2 class="negative-top-offset has-white-color" data-aos="fade-left" data-aos-delay="250">{{page.header.heading}}</h2>
 				</div>
 				<div class="vlt-gap-20"></div>
@@ -36,13 +35,15 @@
 					{% else %}
 					<a class="vlt-btn vlt-btn--tertiary vlt-btn--md" href="{{page.header.buttonUrl}}" target="{{page.header.buttonTarget}}">{{page.header.buttonText}}</a>
 					{% endif %}
+
+					<!--Button--><a class="vlt-btn vlt-simple-link vlt-simple-link--md vlt-btn--md vlt-btn--outline" href="{{ page.header.videoUrl }}" data-fancybox data-small-btn="true" rel="nofollow"><i class="icon-play"></i>&nbsp; Watch Demo</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6 d-flex align-items-center justify-content-center">
-			{# <img class="vlt-column-space-to-container" src="{{ url('theme://images/root/zsb-ipad.png') }}" data-aos="fade-left" data-aos-delay="500" alt="" style="width:100%" loading="lazy"> #}
-			<div class="to-right">
+		<div class="col-lg-6 d-flex align-items-center justify-content-center to-right">
+			<img class="foreground-image" src="{{ page.media.images[page.header.foregroundImage].url }}" data-aos="fade-down" data-aos-delay="500" alt="" style="width:100%" loading="lazy">
+			{# <div class="to-right">
 				<!--Video button-->
 				<div class="vlt-video-button vlt-particle" data-aos="zoom-in" data-aos-delay="1000">
 					<a href="{{ page.header.videoUrl }}" data-fancybox data-small-btn="true" rel="nofollow">
@@ -50,7 +51,7 @@
 					</a>
 					<h6>Find Out More</h6>
 				</div>
-			</div>
+			</div> #}
 		</div>
 
 	</div>

@@ -54,6 +54,15 @@ form:
               type: text
               label: Video Url
               description: youtube / vimeo links are just fine
+            header.foregroundImage:
+              type: filepicker
+              folder: '@self'
+              preview_images: true
+              acccept:
+                  - .png
+                  - .jpg
+              label: Select Foreground Image
+              help: upload the foreground image
             header.backdrop:
               type: filepicker
               folder: "@self"

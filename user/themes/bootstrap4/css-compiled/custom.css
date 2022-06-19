@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 html, body * {
     color-scheme: dark;
 }
@@ -15,7 +16,8 @@ body, .vlt-site-preloader {
 }
 
 h1, h2, h3, h4, h5, h6, .vlt-nav--fullscreen__navigation>.sf-menu * {
-    font-family: "Oswald";
+    /* font-family: "Oswald"; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .sf-menu * {
@@ -24,24 +26,34 @@ h1, h2, h3, h4, h5, h6, .vlt-nav--fullscreen__navigation>.sf-menu * {
     font-weight: 500;
 }
 
+.vlt-btn {
+    margin: 5px 0;
+    border-radius: 8px;
+}
+
 .vlt-nav--offcanvas__navigation ul.sf-menu>li:hover>a, .vlt-nav--slide__navigation ul.sf-menu>li:hover>a, .vlt-nav--offcanvas__navigation ul.sf-menu>li.current-menu-item>a, .vlt-nav--slide__navigation ul.sf-menu>li.current-menu-item>a, .vlt-nav--offcanvas__navigation ul.sf-menu ul.sub-menu>li:hover>a, .vlt-nav--slide__navigation ul.sf-menu ul.sub-menu>li:hover>a, .vlt-nav--offcanvas__navigation ul.sf-menu ul.sub-menu>li.current-menu-item>a, .vlt-nav--slide__navigation ul.sf-menu ul.sub-menu>li.current-menu-item>a, .has-primary-color, p a, a:hover, .vlt-nav--default .sf-menu>li:hover>a, .vlt-nav--default .sf-menu>li.sfHover>a, .vlt-nav--default .sf-menu>li.current-menu-item>a, .vlt-header--dark .vlt-nav--default .sf-menu ul.sub-menu li:hover>a, .vlt-header--dark .vlt-nav--default .sf-menu ul.sub-menu li.current-menu-item>a, .vlt-header--dark .vlt-nav--default .sf-menu ul.sub-menu li.sfHover>a, .vlt-nav--fullscreen__navigation ul.sf-menu li:hover>a, .vlt-nav--fullscreen__navigation ul.sf-menu li.current-menu-item>a, .vlt-widget--search .vlt-search-form button:hover, .vlt-project-showcase--style-6 .vlt-project-showcase__number, .vlt-subscribe-form button:hover, .vlt-isotope-filters li.active, .vlt-isotope-filters li:hover, .vlt-countdown, .vlt-section-title--style-1 .vlt-section-title__subtitle {
-    color: #2e56e8;
+    color: #46cbbc;
 }
 
 .vlt-btn--primary, .has-primary-background-color, .vlt-custom--6188::after, mark, blockquote.pullquote::after, .vlt-nav--default .sf-menu>li>a span::after, .vlt-post--style-3:hover .vlt-post__content, .vlt-project-showcase--style-5 .vlt-project-showcase__footer .vlt-simple-link, .vlt-project-showcase--style-5 .vlt-project-showcase__footer .vlt-simple-link::before, ::-webkit-scrollbar-thumb, .fancybox-navigation .fancybox-button:hover, .fancybox-toolbar .fancybox-button:hover, .fancybox-content .fancybox-button:hover, .vlt-btn--primary, .vlt-btn--secondary span, .vlt-btn--tertiary, .vlt-pricing-table__content ul li.active i, .vlt-proccess__number, .vlt-progress-bar__bar span, .vlt-styled-list--style-1 li i, .vlt-styled-list--style-2 li::before, .vlt-styled-list--style-3 li::before, .vlt-team-member--style-1 .vlt-team-member__socials, .vlt-team-member--style-2 .vlt-team-member__socials {
-    background-color: #2e56e8;
+    background-color: #46cbbc;
+}
+
+.vlt-btn--outline {
+    color: #46cbbc;
+    border: 1px inset #46cbbc;
 }
 
 blockquote {
-    border-left: 3px solid #2e56e8;
+    border-left: 3px solid #46cbbc;
 }
 
 .fancybox-loading {
-    border-top-color: #2e56e8;
+    border-top-color: #46cbbc;
 }
 
 .vlt-team-list a {
-    border: 6px solid #2e56e8;
+    border: 6px solid #46cbbc;
 }
 
 .vlt-work--style-3 .vlt-work__meta, .vlt-work--style-6 .vlt-work__meta {
@@ -112,7 +124,7 @@ blockquote {
 
 #hero_youtube_intro p.subtext {
     color: #b3b3b3;
-    max-width: 320px;
+    max-width: 350px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -126,6 +138,9 @@ blockquote {
     }
     #hero_youtube_intro p.subtext {
         margin: 0 auto;
+    }
+    #hero_youtube_intro .foreground-image {
+        display: none;
     }
 }
 
