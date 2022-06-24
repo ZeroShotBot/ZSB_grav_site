@@ -127,6 +127,22 @@ blockquote {
     max-width: 350px;
 }
 
+@media only screen and (max-width: 1200px) {
+    #hero_youtube_intro .vlt-gap-50{
+        height: 25px;
+    }
+    #hero_youtube_intro p.subtext {
+        font-size: 0.8em;
+    }
+    #hero_youtube_intro h2 {
+        font-size: 1.8em;
+    }
+    #hero_youtube_intro .vlt-btn {
+        padding: 10px 30px;
+        font-size: 0.8em;
+    }
+}
+
 @media only screen and (max-width: 991px) {
     #hero_youtube_intro {
         text-align: center !important;
@@ -140,7 +156,7 @@ blockquote {
         margin: 0 auto;
     }
     #hero_youtube_intro .foreground-image {
-        display: none;
+        display: none; 
     }
 }
 
