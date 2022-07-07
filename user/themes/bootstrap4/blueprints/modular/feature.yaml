@@ -23,6 +23,11 @@ form:
                   type: list
                   label: Feature Section
                   fields:
+                    .backgroundColor:
+                      type: colorpicker
+                      label: Background Color
+                      size: small
+                      default: '#ffffff'
                     .alignment:
                       type: toggle
                       label: Text Align

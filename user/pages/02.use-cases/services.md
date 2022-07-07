@@ -6,7 +6,8 @@ content:
     order:
         by: folder
         dir: asc
-    pagination: '1'
+    pagination: '0'
 subtext: 'Zero Code. Zero-Training. Next-Gen AI'
+cache_enable: false
 ---
 

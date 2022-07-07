@@ -9,15 +9,19 @@
 			<div
 				class=" grid-item" data-aos="fade" data-aos-delay="{{loop.index+1}}00">
 				<!--Portfolio item-->
-				<article class="vlt-work vlt-work--style-4">
+				<article class="vlt-work vlt-work--style-5">
 					<div class="vlt-work__media">
 						<a class="vlt-work__link has-cursor" href="{{ item.url }}"></a>{{ (item.media.images[item.header.leadImage]).cropZoom(350, 450).html|raw  }}
 					</div>
 					<div class="vlt-work__meta">
+						<span class="vlt-work__category">{{ item.header.smallTitle }}</span>
 						<h5 class="vlt-work__title">
 							<a href="#" class="has-white-color">{{ item.header.leadTitle }}</a>
 						</h5>
-						<span class="vlt-work__category">{{ item.header.smallTitle }}</span>
+					</div>
+					<div class="vlt-gap-20"></div>
+					<div>
+						<p>{{ item.header.leadContent }}</p>
 					</div>
 				</article>
 			</div>

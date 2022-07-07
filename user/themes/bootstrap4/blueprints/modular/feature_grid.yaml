@@ -16,9 +16,29 @@ form:
             header.heading:
               type: text
               label: Heading for section
-            header.subtext:
-              type: text
-              label: Subtext or description to accompany heading.
+
+            header.featureImage:
+              type: filepicker
+              folder: '@self'
+              label: Select feature image
+              preview_images: true
+              accept:
+                - .png
+                - .jpg
+            header.featureBullets:
+              type: list
+              label: Feature Bullets
+              help: Feature bullets with titles and descriptions.
+              fields:
+                .title:
+                  type: text
+                  label: Feature Bullet Title
+                  help: The title of the feature bullet.
+                .description:
+                  type: text
+                  label: Feature Bullet Description
+                  help: A brief description of the feature.
+                  
             header.features:
               type: list
               label: Features
@@ -47,3 +67,5 @@ form:
                   type: text
                   label: Description
                   help: A brief description of the feature.
+
+            

@@ -2,7 +2,7 @@
 <section id="hero_youtube_intro" class="jarallax has-white-color has-black-background-color">
 
 	<img class="jarallax-img" src="{{ page.media.images[page.header.backdrop].url }}" alt="" loading="lazy">
-	<div class="row no-gutters">
+	<div class="row no-gutters force-full-height">
 		<div class="col-lg-6 vlt-column-space-to-container d-flex align-items-center to-left">
 			<div>
 				{# <!--Particle image--><img class="vlt-particle" src="{{ url('theme://images/root/square-plus-pattern.png') }}" data-animation-name="zoomIn" alt="" style="position: absolute; bottom: 50px; right: 0; max-width: 220px;opacity:0.1" loading="lazy"> #}
@@ -13,11 +13,6 @@
 
 				<!--Animated block-->
 				<div class="vlt-animated-block">
-					{# <div style="color: #2F2F2F;">
-						<!--Stroke text-->
-						<div class="vlt-stroke-text vlt-stroke-text--lg" data-aos="fade-right" data-aos-delay="200">ZSB
-						</div>
-					</div> #}
 					<h2 class="negative-top-offset has-white-color" data-aos="fade-left" data-aos-delay="250">{{page.header.heading}}</h2>
 				</div>
 				<div class="vlt-gap-20"></div>
@@ -27,8 +22,7 @@
 				</div>
 				<div class="vlt-gap-50"></div>
 				<!--Animated block-->
-				<div class="vlt-animated-block">
-					<div data-aos="fade" data-aos-delay="900">
+				<div class="vlt-animated-block" data-aos="fade" data-aos-delay="900">
 					<!--Button-->
 					{% if page.header.isCustomButton %}
 						{{ page.header.buttonSource | raw}}
@@ -37,23 +31,34 @@
 					{% endif %}
 
 					<!--Button--><a class="vlt-btn vlt-simple-link vlt-simple-link--md vlt-btn--md vlt-btn--outline" href="{{ page.header.videoUrl }}" data-fancybox data-small-btn="true" rel="nofollow"><i class="icon-play"></i>&nbsp; Watch Demo</a>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6 d-flex align-items-center justify-content-center to-right">
-			<img class="foreground-image" src="{{ page.media.images[page.header.foregroundImage].url }}" data-aos="fade-down" data-aos-delay="500" alt="" style="width:100%" loading="lazy">
-			{# <div class="to-right">
-				<!--Video button-->
-				<div class="vlt-video-button vlt-particle" data-aos="zoom-in" data-aos-delay="1000">
-					<a href="{{ page.header.videoUrl }}" data-fancybox data-small-btn="true" rel="nofollow">
-						<i class="icon-play"></i>
-					</a>
-					<h6>Find Out More</h6>
-				</div>
-			</div> #}
-		</div>
-
+		{# <div class="col-lg-6 d-flex align-items-center justify-content-center to-right foreground-image-wrapper">
+			
+		</div> #}
 	</div>
+	<div>
+		<div class="container text-center">
+			<div class="vlt-gap-50"></div>
+			<div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+				<h3 class="vlt-section-title__title has-white-color">{{page.header.screenHeading}}</h3>
+			</div>
+			<div class="vlt-gap-50"></div>
+			<div class="vlt-animated-block" data-aos="fade-up" data-aos-delay="300">
+				<div class="has-wallpaper has-white-color has-black-background-color text-center" style="background-image:url('{{ page.media.images[page.header.screenVideoBackdrop].url }}');">
+					<div class="vlt-gap-240"></div>
+					<!--Video button-->
+					<div class="vlt-video-button" data-aos="fade" data-aos-delay="100"><a href="{{ page.header.screenVideoUrl }}" data-fancybox data-small-btn="true" rel="nofollow"><i class="icon-play"></i></a>
+					<h6>{{page.header.screenPlayButtonLabel}}</h6>
+					</div>
+					<div class="vlt-gap-240"></div>
+				</div>
+			</div>
+			<div class="vlt-gap-150"></div>
+		</div>
+	</div>
+
+	<div class="foreground-image" style="background-image:url('{{ page.media.images[page.header.foregroundImage].url }}');" data-aos="fade-down" data-aos-delay="500" loading="lazy">&nbsp;</div>
 	{# <zeroshot-bot textColor="#fff" color="#202225" height="410px" bot="U2FsdGVkX1+6R/WT+KmoZaekcAN7mLIypcb1LjG9KL39JxwydxFs6aGkRQDUraBUcGJbpW+Ou2c2tUVxi607T8yy4EIEKiUO6ZPUHAXHNuyXhf93g1WjuLAnp3WoM4PJhinQjv2O4x7Hfs47zyLudWw9TChNFS925iwYqtNUqSzWQ9ABQC4JK50mcw78IVbYnZIYPNe6+IFRnWFIuJLgOgq7Qux64bPU+xTpab2PCi/pICUaYPWZzdQcoj4QmcDZwB5dC8jELg0oftnsynGnm2q6JrN+BLxETyuYNBiDJzEuT5BEN1B402cg9nqDuU1+p8MEjcFGewoPTxcMKknANqdRPhJrs14X6ceWL1Ob1HDMBi/jbAup+mbWuAzlYIY3kR0BY/+6JWWTt4DVYUZSOowLqjY7CoFG/js96Mzh2wo="></zeroshot-bot> #}
 </section>

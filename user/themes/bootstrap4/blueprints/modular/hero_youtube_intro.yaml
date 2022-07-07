@@ -76,3 +76,25 @@ form:
               label: Banner Screen Color
               size: small
               default: "#000000"
+            
+            header.screenHeading:
+              type: text
+              label: Screen Heading
+              help: Screen Section's heading.
+            header.screenPlayButtonLabel:
+              type: text
+              label: Screen Play Button Label 
+              default: 'Play'
+              description: the label shown near play button in lower video preview
+            header.screenVideoBackdrop:
+              type: filepicker
+              folder: '@self'
+              label: Select backdrop image
+              preview_images: true
+              accept:
+                - .png
+                - .jpg
+            header.screenVideoUrl:
+              type: text
+              label: Screen Video Url
+              description: youtube / vimeo links are just fine

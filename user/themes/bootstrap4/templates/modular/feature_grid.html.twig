@@ -1,54 +1,70 @@
 <!--Section-->
-<section class="has-black-background-color has-white-color">
-	<div class="container">
-		<div class="row align-items-center">
+<section id="feature_grid" class="position-relative">
+    <div class="vlt-gap-130"></div>
+	<div class="feature-block-image" style="background-image:url('{{ page.media.images[page.header.featureImage].url }}');" data-aos="fade-down" data-aos-delay="500" loading="lazy">&nbsp;</div>
+    <div class="container">
+    
+        <div class="row align-items-center">
+            <div class="col-lg-5 offset-lg-7 col-md-12">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade-up" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1">
+                        <h2 class="vlt-section-title__title">{{page.header.heading}}</h2>
+                    </div>
+                </div>
+                <div class="vlt-gap-60"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <!--Styled list-->
+                    <ul class="vlt-styled-list vlt-styled-list--style-1">
+						{% for item in page.header.featureBullets %}
+						<li>
+							<i class="icon-check"></i>
+							<span>
+							<h5 class="vlt-service__title">{{item.title}}</h5>
+                            <p class="vlt-service__text">{{item.description}}</p>
+							</span>
+						</li>
+						{% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-			<div
-				class="col-lg-12 text-center">
-				<!--Animated block-->
-				<div
-					class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-					<!--Section title-->
-					<div class="vlt-section-title vlt-section-title--style-1">
-						<h3 class="vlt-section-title__title has-white-color">{{page.header.heading}}</h3>
-					</div>
-					<!--Animated block-->
-					<div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-						{{page.header.subtext}}
-					</div>
-				</div>
-				<div class="vlt-gap-60"></div>
-			</div>
-		</div>
-		<div class="row align-items-center">
-			<div class="col-lg-12 p-0">
+        <div class="vlt-gap-100"></div>
+        
+        <div class="row align-items-center">
+            <div class="col-lg-12 p-0">
 
-				<div class="row no-gutters">
-					{% for item in page.header.features %}
-						<div
-							class="col-md-3">
-							<!--Animated block-->
-							<div
-								class="vlt-animated-block" data-aos="fade" data-aos-delay="{{loop.index+1}}00">
-								<!--Service-->
-								<div
-									class="vlt-service vlt-service--style-2 service-style-dark">
-									{# <a class="vlt-service__link" href="service-single.html"></a> #}
-									<div class="vlt-service__content">
-										<div class="vlt-service__media">
-											{{item.vectorIcon}}
-										</div>
-										<div class="vlt-service__content">
-											<h5 class="vlt-service__title">{{item.title}}</h5>
-											<p class="vlt-service__text">{{item.description}}</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-		<div class="vlt-gap-130"></div>
-	</section>
+                <div class="row no-gutters">
+                    {% for item in page.header.features %}
+                        <div
+                            class="col-md-4">
+                            <!--Animated block-->
+                            <div
+                                class="vlt-animated-block" data-aos="fade" data-aos-delay="{{loop.index+1}}00">
+                                <!--Service-->
+                                <div
+                                    class="vlt-service vlt-service--style-2 service-style-dark">
+                                    {# <a class="vlt-service__link" href="service-single.html"></a> #}
+                                    <div class="vlt-service__content">
+                                        <div class="vlt-service__media">
+                                            {{item.vectorIcon}}
+                                        </div>
+                                        <div class="vlt-service__content">
+                                            <h5 class="vlt-service__title">{{item.title}}</h5>
+                                            <p class="vlt-service__text">{{item.description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="vlt-gap-130"></div>
+    </section>
+

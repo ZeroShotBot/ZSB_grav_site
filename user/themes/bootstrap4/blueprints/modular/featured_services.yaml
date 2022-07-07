@@ -17,6 +17,14 @@ form:
             header.smallTitle:
               type: text
               label: Small Upper Title
+            header.backdrop:
+              type: filepicker
+              folder: "@self"
+              label: Select backdrop image
+              preview_images: true
+              accept:
+                - .png
+                - .jpg
 
         featured_services:
           type: tab
