@@ -175,10 +175,6 @@ blockquote {
     color: #46cbbc;
 }
 
-#feature_grid p {
-    font-size: 0.8em;
-}
-
 @media only screen and (max-width: 1200px) {
     #hero_youtube_intro .vlt-gap-50{
         height: 25px;

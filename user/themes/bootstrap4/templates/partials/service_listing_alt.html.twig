@@ -1,5 +1,5 @@
 <!--Section-->
-<section>
+<section >
 	<div class="vlt-gap-90"></div>
 	<div class="container">
 		<div class="vlt-isotope-grid" data-columns="3" data-layout="masonry" data-x-gap="30|30" data-y-gap="60|60">
@@ -16,12 +16,12 @@
 					<div class="vlt-work__meta">
 						<span class="vlt-work__category">{{ item.header.smallTitle }}</span>
 						<h5 class="vlt-work__title">
-							<a href="#" class="has-white-color">{{ item.header.leadTitle }}</a>
+							<a href="{{ item.url }}" class="has-white-color">{{ item.header.leadTitle }}</a>
 						</h5>
 					</div>
 					<div class="vlt-gap-20"></div>
 					<div>
-						<p>{{ item.header.leadContent }}</p>
+						<p class="fz-1">{{ item.header.leadContent }}</p>
 					</div>
 				</article>
 			</div>
