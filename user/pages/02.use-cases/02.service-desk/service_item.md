@@ -9,8 +9,8 @@ content:
     order:
         by: default
         dir: desc
-media_order: 'pic4.jpg,55593100_l-1024x683.jpg'
-leadImage: pic4.jpg
+media_order: 'pic_4_1.jpg,55593100_l-1024x683.jpg'
+leadImage: pic_4_1.jpg
 menu: 'ZSB in Service Desks'
 buttonUrl: 'https://portal.zeroshotbot.com/signup'
 buttonTarget: _blank

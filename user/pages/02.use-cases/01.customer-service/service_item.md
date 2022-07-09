@@ -10,8 +10,8 @@ content:
         by: default
         dir: desc
 menu: 'ZSB in Customer Service'
-media_order: 'engagement_b_sm.jpg,engagement_a_sm.jpg,pic2.png'
-leadImage: pic2.png
+media_order: 'engagement_b_sm.jpg,engagement_a_sm.jpg,pic_2_2.jpg'
+leadImage: pic_2_2.jpg
 secondaryImage: engagement_b_sm.jpg
 buttonUrl: 'https://portal.zeroshotbot.com/signup'
 buttonTarget: _blank

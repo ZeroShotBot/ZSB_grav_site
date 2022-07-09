@@ -1,4 +1,4 @@
-<section class="has-white-color has-dark-background-color">
+<section>
 	<div class="vlt-gap-120"></div>
 	<div class="container">
 		<div class="row">
@@ -6,14 +6,24 @@
 				class="col-md-8 offset-md-2 text-center">
 				<!--Animated block-->
 				<div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-					<span class="vlt-display-1 vlt-section-title__subtitle">{{page.title}}</span>
+					
+				<!--Slider controls-->
+					<div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-testimonials-slider-anchor">
+						<div class="vlt-swiper-button-prev">
+							<i class="icon-arrow-left"></i>
+						</div>
+						&nbsp; &nbsp; <span class="vlt-display-1 vlt-section-title__subtitle">{{page.title}}</span> &nbsp; &nbsp;
+						{# <div class="vlt-swiper-pagination alt"></div> #}
+						<div class="vlt-swiper-button-next">
+							<i class="icon-arrow-right"></i>
+						</div>
+					</div>
 				</div>
-				<div class="vlt-gap-70"></div>
 				<!--Animated block-->
 				<div
 					class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
 					<!--Content slider-->
-					<div class="vlt-content-slider " data-navigation-anchor=".vlt-testimonials-slider-anchor" data-gap="100" data-loop="enable" data-speed="" data-autoplay="" data-autoplay-speed="" data-slides-centered="" data-slide-settings="{}" data-free-mode="" data-slider-offset="" data-mousewheel="">
+					<div class="vlt-content-slider" data-navigation-anchor=".vlt-testimonials-slider-anchor" data-gap="10" data-loop="enable" data-speed="" data-autoplay="" data-autoplay-speed="" data-slides-centered="enable" data-slide-settings='{"slides_to_show":"auto"}' data-free-mode="" data-slider-offset="" data-mousewheel="">
 						<div class="swiper-container">
 							<div class="swiper-wrapper">
 
@@ -21,18 +31,9 @@
                                 <div
 									class="swiper-slide">
 									<!--Testimonial-->
-                                    <div class="vlt-testimonial vlt-testimonial--style-1">
-										<div class="vlt-testimonial__content">“ {{item.content}} ”
-                                        </div>
-										
-                                        <div class="vlt-testimonial__avatar" style="background-image:url({{ page.media.images[item.image].cropResize(300, 300).url }})">&nbsp;</div>
-                                        <div class="vlt-gap-10"></div>
-                                        <div class="vlt-testimonial__meta">
-											<div>
-												<h6 class="vlt-testimonial__title">{{item.name}}
-												</h6>
-												<span class="vlt-testimonial__function">{{item.designation}}</span>
-											</div>
+                                    <div class="vlt-testimonial vlt-testimonial--style-3 alt">
+										<div class="vlt-testimonial__meta">
+                                        	<div class="vlt-testimonial__avatar" style="background-image:url({{ page.media.images[item.image].cropResize(300, 300).url }})">&nbsp;</div>
 										</div>
 									</div>
 								</div>
@@ -41,21 +42,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="vlt-gap-80"></div>
-					<!--Slider controls-->
-					<div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-testimonials-slider-anchor has-white-color">
-						<div class="vlt-swiper-button-prev">
-							<i class="icon-arrow-left"></i>
-						</div>
-						<div class="vlt-swiper-pagination"></div>
-						<div class="vlt-swiper-button-next">
-							<i class="icon-arrow-right"></i>
-						</div>
-					</div>
+		
 
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="vlt-gap-120"></div>
 </section>
