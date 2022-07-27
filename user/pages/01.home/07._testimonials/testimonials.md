@@ -3,6 +3,11 @@ title: 'Our Clients'
 body_classes: modular
 testimonials:
     -
+        image: gorewards.png
+        name: 'Go Rewards'
+        designation: Lifestyle
+        content: 'Go Rewards is a Lifestyle Rewards Program that offers meaningful rewards and experiences designed for you with more partners and more freedom to earn and use your points!'
+    -
         image: FBH_logo.png
         name: '4BH For Better Health'
         designation: Healthcare
@@ -33,6 +38,6 @@ testimonials:
         designation: 'Technology & Lifestyle'
         content: 'Partnering with ZeroShotBot has allowed our start-up to scale rapidly upon launch, insuring that customer inquiries are managed instantly and 24/7.'
 cache_enable: false
-media_order: 'egenra_logo.png,AlternateLogo.png,myca_black.png,FBH_logo.png,logo-inner-1.png,bcs_logo_black.png'
+media_order: 'gorewards.png,egenra_logo.png,AlternateLogo.png,myca_black.png,FBH_logo.png,logo-inner-1.png,bcs_logo_black.png'
 ---
 
